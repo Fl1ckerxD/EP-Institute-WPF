@@ -23,6 +23,7 @@ namespace Institute.Frames
         public Speciality()
         {
             InitializeComponent();
+
         }
     }
 }

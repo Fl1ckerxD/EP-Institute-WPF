@@ -9,6 +9,10 @@
       Title="Speciality">
 
     <Grid>
-        
+        <DataGrid>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Название" Binding="{Binding Специальность}"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Page>
