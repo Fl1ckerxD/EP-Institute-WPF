@@ -1,0 +1,737 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище InstituteModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="ВидОтчетности">
+          <Key>
+            <PropertyRef Name="IdОтчет" />
+          </Key>
+          <Property Name="IdОтчет" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Название" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Дисциплина">
+          <Key>
+            <PropertyRef Name="IdДисцип" />
+          </Key>
+          <Property Name="IdДисцип" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Название" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ЗавКафедрой">
+          <Key>
+            <PropertyRef Name="IdЗавКаф" />
+          </Key>
+          <Property Name="IdЗавКаф" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Фамилия" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Имя" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="Отчество" Type="nvarchar" MaxLength="25" />
+          <Property Name="IdСтепень" Type="int" Nullable="false" />
+          <Property Name="IdЗвание" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Звание">
+          <Key>
+            <PropertyRef Name="IdЗвание" />
+          </Key>
+          <Property Name="IdЗвание" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Название" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Кафедра">
+          <Key>
+            <PropertyRef Name="IdКафедра" />
+          </Key>
+          <Property Name="IdКафедра" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Название" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Телефон" Type="nvarchar" MaxLength="12" Nullable="false" />
+          <Property Name="IdФакультет" Type="int" Nullable="false" />
+          <Property Name="IdЗавКаф" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Квалификация">
+          <Key>
+            <PropertyRef Name="IdКвалиф" />
+          </Key>
+          <Property Name="IdКвалиф" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Название" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Специальность">
+          <Key>
+            <PropertyRef Name="IdСпец" />
+          </Key>
+          <Property Name="IdСпец" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Название" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IdКвалиф" Type="int" Nullable="false" />
+          <Property Name="Продолжительность" Type="nvarchar" MaxLength="25" />
+          <Property Name="IdФормаОбуч" Type="int" Nullable="false" />
+          <Property Name="IdФакультет" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Степень">
+          <Key>
+            <PropertyRef Name="IdСтепень" />
+          </Key>
+          <Property Name="IdСтепень" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Название" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="УчебныйПлан">
+          <Key>
+            <PropertyRef Name="IdПлан" />
+          </Key>
+          <Property Name="IdПлан" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdДисцип" Type="int" Nullable="false" />
+          <Property Name="IdСпец" Type="int" Nullable="false" />
+          <Property Name="ЧасыЛекции" Type="int" Nullable="false" />
+          <Property Name="ЧасыЛабРабот" Type="int" Nullable="false" />
+          <Property Name="ЧасыПракРабот" Type="int" Nullable="false" />
+          <Property Name="ЧасыКурсового" Type="int" Nullable="false" />
+          <Property Name="IdВидОтчет" Type="int" Nullable="false" />
+          <Property Name="Семестр" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Факультет">
+          <Key>
+            <PropertyRef Name="IdФакульт" />
+          </Key>
+          <Property Name="IdФакульт" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Название" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ФормаОбучения">
+          <Key>
+            <PropertyRef Name="IdФорма" />
+          </Key>
+          <Property Name="IdФорма" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Название" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__ЗавКафедр__IdЗва__503BEA1C">
+          <End Role="Звание" Type="Self.Звание" Multiplicity="1" />
+          <End Role="ЗавКафедрой" Type="Self.ЗавКафедрой" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Звание">
+              <PropertyRef Name="IdЗвание" />
+            </Principal>
+            <Dependent Role="ЗавКафедрой">
+              <PropertyRef Name="IdЗвание" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ЗавКафедр__IdСте__4F47C5E3">
+          <End Role="Степень" Type="Self.Степень" Multiplicity="1" />
+          <End Role="ЗавКафедрой" Type="Self.ЗавКафедрой" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Степень">
+              <PropertyRef Name="IdСтепень" />
+            </Principal>
+            <Dependent Role="ЗавКафедрой">
+              <PropertyRef Name="IdСтепень" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Кафедра__IdЗавКа__634EBE90">
+          <End Role="ЗавКафедрой" Type="Self.ЗавКафедрой" Multiplicity="1" />
+          <End Role="Кафедра" Type="Self.Кафедра" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ЗавКафедрой">
+              <PropertyRef Name="IdЗавКаф" />
+            </Principal>
+            <Dependent Role="Кафедра">
+              <PropertyRef Name="IdЗавКаф" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Кафедра__IdФакул__625A9A57">
+          <End Role="Факультет" Type="Self.Факультет" Multiplicity="1" />
+          <End Role="Кафедра" Type="Self.Кафедра" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Факультет">
+              <PropertyRef Name="IdФакульт" />
+            </Principal>
+            <Dependent Role="Кафедра">
+              <PropertyRef Name="IdФакультет" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Специальн__IdКва__160F4887">
+          <End Role="Квалификация" Type="Self.Квалификация" Multiplicity="1" />
+          <End Role="Специальность" Type="Self.Специальность" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Квалификация">
+              <PropertyRef Name="IdКвалиф" />
+            </Principal>
+            <Dependent Role="Специальность">
+              <PropertyRef Name="IdКвалиф" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Специальн__IdФак__17F790F9">
+          <End Role="Факультет" Type="Self.Факультет" Multiplicity="1" />
+          <End Role="Специальность" Type="Self.Специальность" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Факультет">
+              <PropertyRef Name="IdФакульт" />
+            </Principal>
+            <Dependent Role="Специальность">
+              <PropertyRef Name="IdФакультет" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Специальн__IdФор__17036CC0">
+          <End Role="ФормаОбучения" Type="Self.ФормаОбучения" Multiplicity="1" />
+          <End Role="Специальность" Type="Self.Специальность" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ФормаОбучения">
+              <PropertyRef Name="IdФорма" />
+            </Principal>
+            <Dependent Role="Специальность">
+              <PropertyRef Name="IdФормаОбуч" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__УчебныйПл__IdВид__2CF2ADDF">
+          <End Role="ВидОтчетности" Type="Self.ВидОтчетности" Multiplicity="1" />
+          <End Role="УчебныйПлан" Type="Self.УчебныйПлан" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ВидОтчетности">
+              <PropertyRef Name="IdОтчет" />
+            </Principal>
+            <Dependent Role="УчебныйПлан">
+              <PropertyRef Name="IdВидОтчет" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__УчебныйПл__IdДис__2B0A656D">
+          <End Role="Дисциплина" Type="Self.Дисциплина" Multiplicity="1" />
+          <End Role="УчебныйПлан" Type="Self.УчебныйПлан" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Дисциплина">
+              <PropertyRef Name="IdДисцип" />
+            </Principal>
+            <Dependent Role="УчебныйПлан">
+              <PropertyRef Name="IdДисцип" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__УчебныйПл__IdСпе__2BFE89A6">
+          <End Role="Специальность" Type="Self.Специальность" Multiplicity="1" />
+          <End Role="УчебныйПлан" Type="Self.УчебныйПлан" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Специальность">
+              <PropertyRef Name="IdСпец" />
+            </Principal>
+            <Dependent Role="УчебныйПлан">
+              <PropertyRef Name="IdСпец" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище InstituteModelContainer">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ВидОтчетности" EntityType="Self.ВидОтчетности" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Дисциплина" EntityType="Self.Дисциплина" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ЗавКафедрой" EntityType="Self.ЗавКафедрой" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Звание" EntityType="Self.Звание" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Кафедра" EntityType="Self.Кафедра" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Квалификация" EntityType="Self.Квалификация" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Специальность" EntityType="Self.Специальность" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Степень" EntityType="Self.Степень" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="УчебныйПлан" EntityType="Self.УчебныйПлан" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Факультет" EntityType="Self.Факультет" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ФормаОбучения" EntityType="Self.ФормаОбучения" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__ЗавКафедр__IdЗва__503BEA1C" Association="Self.FK__ЗавКафедр__IdЗва__503BEA1C">
+            <End Role="Звание" EntitySet="Звание" />
+            <End Role="ЗавКафедрой" EntitySet="ЗавКафедрой" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ЗавКафедр__IdСте__4F47C5E3" Association="Self.FK__ЗавКафедр__IdСте__4F47C5E3">
+            <End Role="Степень" EntitySet="Степень" />
+            <End Role="ЗавКафедрой" EntitySet="ЗавКафедрой" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Кафедра__IdЗавКа__634EBE90" Association="Self.FK__Кафедра__IdЗавКа__634EBE90">
+            <End Role="ЗавКафедрой" EntitySet="ЗавКафедрой" />
+            <End Role="Кафедра" EntitySet="Кафедра" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Кафедра__IdФакул__625A9A57" Association="Self.FK__Кафедра__IdФакул__625A9A57">
+            <End Role="Факультет" EntitySet="Факультет" />
+            <End Role="Кафедра" EntitySet="Кафедра" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Специальн__IdКва__160F4887" Association="Self.FK__Специальн__IdКва__160F4887">
+            <End Role="Квалификация" EntitySet="Квалификация" />
+            <End Role="Специальность" EntitySet="Специальность" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Специальн__IdФак__17F790F9" Association="Self.FK__Специальн__IdФак__17F790F9">
+            <End Role="Факультет" EntitySet="Факультет" />
+            <End Role="Специальность" EntitySet="Специальность" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Специальн__IdФор__17036CC0" Association="Self.FK__Специальн__IdФор__17036CC0">
+            <End Role="ФормаОбучения" EntitySet="ФормаОбучения" />
+            <End Role="Специальность" EntitySet="Специальность" />
+          </AssociationSet>
+          <AssociationSet Name="FK__УчебныйПл__IdВид__2CF2ADDF" Association="Self.FK__УчебныйПл__IdВид__2CF2ADDF">
+            <End Role="ВидОтчетности" EntitySet="ВидОтчетности" />
+            <End Role="УчебныйПлан" EntitySet="УчебныйПлан" />
+          </AssociationSet>
+          <AssociationSet Name="FK__УчебныйПл__IdДис__2B0A656D" Association="Self.FK__УчебныйПл__IdДис__2B0A656D">
+            <End Role="Дисциплина" EntitySet="Дисциплина" />
+            <End Role="УчебныйПлан" EntitySet="УчебныйПлан" />
+          </AssociationSet>
+          <AssociationSet Name="FK__УчебныйПл__IdСпе__2BFE89A6" Association="Self.FK__УчебныйПл__IdСпе__2BFE89A6">
+            <End Role="Специальность" EntitySet="Специальность" />
+            <End Role="УчебныйПлан" EntitySet="УчебныйПлан" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="InstituteModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="ВидОтчетности">
+          <Key>
+            <PropertyRef Name="IdОтчет" />
+          </Key>
+          <Property Name="IdОтчет" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Название" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="УчебныйПлан" Relationship="Self.FK__УчебныйПл__IdВид__2CF2ADDF" FromRole="ВидОтчетности" ToRole="УчебныйПлан" />
+        </EntityType>
+        <EntityType Name="Дисциплина">
+          <Key>
+            <PropertyRef Name="IdДисцип" />
+          </Key>
+          <Property Name="IdДисцип" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Название" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="УчебныйПлан" Relationship="Self.FK__УчебныйПл__IdДис__2B0A656D" FromRole="Дисциплина" ToRole="УчебныйПлан" />
+        </EntityType>
+        <EntityType Name="ЗавКафедрой">
+          <Key>
+            <PropertyRef Name="IdЗавКаф" />
+          </Key>
+          <Property Name="IdЗавКаф" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Фамилия" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Имя" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Отчество" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="IdСтепень" Type="Int32" Nullable="false" />
+          <Property Name="IdЗвание" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Звание" Relationship="Self.FK__ЗавКафедр__IdЗва__503BEA1C" FromRole="ЗавКафедрой" ToRole="Звание" />
+          <NavigationProperty Name="Степень" Relationship="Self.FK__ЗавКафедр__IdСте__4F47C5E3" FromRole="ЗавКафедрой" ToRole="Степень" />
+          <NavigationProperty Name="Кафедра" Relationship="Self.FK__Кафедра__IdЗавКа__634EBE90" FromRole="ЗавКафедрой" ToRole="Кафедра" />
+        </EntityType>
+        <EntityType Name="Звание">
+          <Key>
+            <PropertyRef Name="IdЗвание" />
+          </Key>
+          <Property Name="IdЗвание" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Название" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="ЗавКафедрой" Relationship="Self.FK__ЗавКафедр__IdЗва__503BEA1C" FromRole="Звание" ToRole="ЗавКафедрой" />
+        </EntityType>
+        <EntityType Name="Кафедра">
+          <Key>
+            <PropertyRef Name="IdКафедра" />
+          </Key>
+          <Property Name="IdКафедра" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Название" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Телефон" Type="String" MaxLength="12" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IdФакультет" Type="Int32" Nullable="false" />
+          <Property Name="IdЗавКаф" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ЗавКафедрой" Relationship="Self.FK__Кафедра__IdЗавКа__634EBE90" FromRole="Кафедра" ToRole="ЗавКафедрой" />
+          <NavigationProperty Name="Факультет" Relationship="Self.FK__Кафедра__IdФакул__625A9A57" FromRole="Кафедра" ToRole="Факультет" />
+        </EntityType>
+        <EntityType Name="Квалификация">
+          <Key>
+            <PropertyRef Name="IdКвалиф" />
+          </Key>
+          <Property Name="IdКвалиф" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Название" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Специальность" Relationship="Self.FK__Специальн__IdКва__160F4887" FromRole="Квалификация" ToRole="Специальность" />
+        </EntityType>
+        <EntityType Name="Специальность">
+          <Key>
+            <PropertyRef Name="IdСпец" />
+          </Key>
+          <Property Name="IdСпец" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Название" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IdКвалиф" Type="Int32" Nullable="false" />
+          <Property Name="Продолжительность" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="IdФормаОбуч" Type="Int32" Nullable="false" />
+          <Property Name="IdФакультет" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Квалификация" Relationship="Self.FK__Специальн__IdКва__160F4887" FromRole="Специальность" ToRole="Квалификация" />
+          <NavigationProperty Name="Факультет" Relationship="Self.FK__Специальн__IdФак__17F790F9" FromRole="Специальность" ToRole="Факультет" />
+          <NavigationProperty Name="ФормаОбучения" Relationship="Self.FK__Специальн__IdФор__17036CC0" FromRole="Специальность" ToRole="ФормаОбучения" />
+          <NavigationProperty Name="УчебныйПлан" Relationship="Self.FK__УчебныйПл__IdСпе__2BFE89A6" FromRole="Специальность" ToRole="УчебныйПлан" />
+        </EntityType>
+        <EntityType Name="Степень">
+          <Key>
+            <PropertyRef Name="IdСтепень" />
+          </Key>
+          <Property Name="IdСтепень" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Название" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="ЗавКафедрой" Relationship="Self.FK__ЗавКафедр__IdСте__4F47C5E3" FromRole="Степень" ToRole="ЗавКафедрой" />
+        </EntityType>
+        <EntityType Name="УчебныйПлан">
+          <Key>
+            <PropertyRef Name="IdПлан" />
+          </Key>
+          <Property Name="IdПлан" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdДисцип" Type="Int32" Nullable="false" />
+          <Property Name="IdСпец" Type="Int32" Nullable="false" />
+          <Property Name="ЧасыЛекции" Type="Int32" Nullable="false" />
+          <Property Name="ЧасыЛабРабот" Type="Int32" Nullable="false" />
+          <Property Name="ЧасыПракРабот" Type="Int32" Nullable="false" />
+          <Property Name="ЧасыКурсового" Type="Int32" Nullable="false" />
+          <Property Name="IdВидОтчет" Type="Int32" Nullable="false" />
+          <Property Name="Семестр" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ВидОтчетности" Relationship="Self.FK__УчебныйПл__IdВид__2CF2ADDF" FromRole="УчебныйПлан" ToRole="ВидОтчетности" />
+          <NavigationProperty Name="Дисциплина" Relationship="Self.FK__УчебныйПл__IdДис__2B0A656D" FromRole="УчебныйПлан" ToRole="Дисциплина" />
+          <NavigationProperty Name="Специальность" Relationship="Self.FK__УчебныйПл__IdСпе__2BFE89A6" FromRole="УчебныйПлан" ToRole="Специальность" />
+        </EntityType>
+        <EntityType Name="Факультет">
+          <Key>
+            <PropertyRef Name="IdФакульт" />
+          </Key>
+          <Property Name="IdФакульт" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Название" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Кафедра" Relationship="Self.FK__Кафедра__IdФакул__625A9A57" FromRole="Факультет" ToRole="Кафедра" />
+          <NavigationProperty Name="Специальность" Relationship="Self.FK__Специальн__IdФак__17F790F9" FromRole="Факультет" ToRole="Специальность" />
+        </EntityType>
+        <EntityType Name="ФормаОбучения">
+          <Key>
+            <PropertyRef Name="IdФорма" />
+          </Key>
+          <Property Name="IdФорма" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Название" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Специальность" Relationship="Self.FK__Специальн__IdФор__17036CC0" FromRole="ФормаОбучения" ToRole="Специальность" />
+        </EntityType>
+        <Association Name="FK__УчебныйПл__IdВид__2CF2ADDF">
+          <End Role="ВидОтчетности" Type="Self.ВидОтчетности" Multiplicity="1" />
+          <End Role="УчебныйПлан" Type="Self.УчебныйПлан" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ВидОтчетности">
+              <PropertyRef Name="IdОтчет" />
+            </Principal>
+            <Dependent Role="УчебныйПлан">
+              <PropertyRef Name="IdВидОтчет" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__УчебныйПл__IdДис__2B0A656D">
+          <End Role="Дисциплина" Type="Self.Дисциплина" Multiplicity="1" />
+          <End Role="УчебныйПлан" Type="Self.УчебныйПлан" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Дисциплина">
+              <PropertyRef Name="IdДисцип" />
+            </Principal>
+            <Dependent Role="УчебныйПлан">
+              <PropertyRef Name="IdДисцип" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ЗавКафедр__IdЗва__503BEA1C">
+          <End Role="Звание" Type="Self.Звание" Multiplicity="1" />
+          <End Role="ЗавКафедрой" Type="Self.ЗавКафедрой" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Звание">
+              <PropertyRef Name="IdЗвание" />
+            </Principal>
+            <Dependent Role="ЗавКафедрой">
+              <PropertyRef Name="IdЗвание" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ЗавКафедр__IdСте__4F47C5E3">
+          <End Role="Степень" Type="Self.Степень" Multiplicity="1" />
+          <End Role="ЗавКафедрой" Type="Self.ЗавКафедрой" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Степень">
+              <PropertyRef Name="IdСтепень" />
+            </Principal>
+            <Dependent Role="ЗавКафедрой">
+              <PropertyRef Name="IdСтепень" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Кафедра__IdЗавКа__634EBE90">
+          <End Role="ЗавКафедрой" Type="Self.ЗавКафедрой" Multiplicity="1" />
+          <End Role="Кафедра" Type="Self.Кафедра" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ЗавКафедрой">
+              <PropertyRef Name="IdЗавКаф" />
+            </Principal>
+            <Dependent Role="Кафедра">
+              <PropertyRef Name="IdЗавКаф" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Кафедра__IdФакул__625A9A57">
+          <End Role="Факультет" Type="Self.Факультет" Multiplicity="1" />
+          <End Role="Кафедра" Type="Self.Кафедра" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Факультет">
+              <PropertyRef Name="IdФакульт" />
+            </Principal>
+            <Dependent Role="Кафедра">
+              <PropertyRef Name="IdФакультет" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Специальн__IdКва__160F4887">
+          <End Role="Квалификация" Type="Self.Квалификация" Multiplicity="1" />
+          <End Role="Специальность" Type="Self.Специальность" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Квалификация">
+              <PropertyRef Name="IdКвалиф" />
+            </Principal>
+            <Dependent Role="Специальность">
+              <PropertyRef Name="IdКвалиф" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Специальн__IdФак__17F790F9">
+          <End Role="Факультет" Type="Self.Факультет" Multiplicity="1" />
+          <End Role="Специальность" Type="Self.Специальность" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Факультет">
+              <PropertyRef Name="IdФакульт" />
+            </Principal>
+            <Dependent Role="Специальность">
+              <PropertyRef Name="IdФакультет" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Специальн__IdФор__17036CC0">
+          <End Role="ФормаОбучения" Type="Self.ФормаОбучения" Multiplicity="1" />
+          <End Role="Специальность" Type="Self.Специальность" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ФормаОбучения">
+              <PropertyRef Name="IdФорма" />
+            </Principal>
+            <Dependent Role="Специальность">
+              <PropertyRef Name="IdФормаОбуч" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__УчебныйПл__IdСпе__2BFE89A6">
+          <End Role="Специальность" Type="Self.Специальность" Multiplicity="1" />
+          <End Role="УчебныйПлан" Type="Self.УчебныйПлан" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Специальность">
+              <PropertyRef Name="IdСпец" />
+            </Principal>
+            <Dependent Role="УчебныйПлан">
+              <PropertyRef Name="IdСпец" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="InstituteEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="ВидОтчетности" EntityType="Self.ВидОтчетности" />
+          <EntitySet Name="Дисциплина" EntityType="Self.Дисциплина" />
+          <EntitySet Name="ЗавКафедрой" EntityType="Self.ЗавКафедрой" />
+          <EntitySet Name="Звание" EntityType="Self.Звание" />
+          <EntitySet Name="Кафедра" EntityType="Self.Кафедра" />
+          <EntitySet Name="Квалификация" EntityType="Self.Квалификация" />
+          <EntitySet Name="Специальность" EntityType="Self.Специальность" />
+          <EntitySet Name="Степень" EntityType="Self.Степень" />
+          <EntitySet Name="УчебныйПлан" EntityType="Self.УчебныйПлан" />
+          <EntitySet Name="Факультет" EntityType="Self.Факультет" />
+          <EntitySet Name="ФормаОбучения" EntityType="Self.ФормаОбучения" />
+          <AssociationSet Name="FK__УчебныйПл__IdВид__2CF2ADDF" Association="Self.FK__УчебныйПл__IdВид__2CF2ADDF">
+            <End Role="ВидОтчетности" EntitySet="ВидОтчетности" />
+            <End Role="УчебныйПлан" EntitySet="УчебныйПлан" />
+          </AssociationSet>
+          <AssociationSet Name="FK__УчебныйПл__IdДис__2B0A656D" Association="Self.FK__УчебныйПл__IdДис__2B0A656D">
+            <End Role="Дисциплина" EntitySet="Дисциплина" />
+            <End Role="УчебныйПлан" EntitySet="УчебныйПлан" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ЗавКафедр__IdЗва__503BEA1C" Association="Self.FK__ЗавКафедр__IdЗва__503BEA1C">
+            <End Role="Звание" EntitySet="Звание" />
+            <End Role="ЗавКафедрой" EntitySet="ЗавКафедрой" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ЗавКафедр__IdСте__4F47C5E3" Association="Self.FK__ЗавКафедр__IdСте__4F47C5E3">
+            <End Role="Степень" EntitySet="Степень" />
+            <End Role="ЗавКафедрой" EntitySet="ЗавКафедрой" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Кафедра__IdЗавКа__634EBE90" Association="Self.FK__Кафедра__IdЗавКа__634EBE90">
+            <End Role="ЗавКафедрой" EntitySet="ЗавКафедрой" />
+            <End Role="Кафедра" EntitySet="Кафедра" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Кафедра__IdФакул__625A9A57" Association="Self.FK__Кафедра__IdФакул__625A9A57">
+            <End Role="Факультет" EntitySet="Факультет" />
+            <End Role="Кафедра" EntitySet="Кафедра" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Специальн__IdКва__160F4887" Association="Self.FK__Специальн__IdКва__160F4887">
+            <End Role="Квалификация" EntitySet="Квалификация" />
+            <End Role="Специальность" EntitySet="Специальность" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Специальн__IdФак__17F790F9" Association="Self.FK__Специальн__IdФак__17F790F9">
+            <End Role="Факультет" EntitySet="Факультет" />
+            <End Role="Специальность" EntitySet="Специальность" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Специальн__IdФор__17036CC0" Association="Self.FK__Специальн__IdФор__17036CC0">
+            <End Role="ФормаОбучения" EntitySet="ФормаОбучения" />
+            <End Role="Специальность" EntitySet="Специальность" />
+          </AssociationSet>
+          <AssociationSet Name="FK__УчебныйПл__IdСпе__2BFE89A6" Association="Self.FK__УчебныйПл__IdСпе__2BFE89A6">
+            <End Role="Специальность" EntitySet="Специальность" />
+            <End Role="УчебныйПлан" EntitySet="УчебныйПлан" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище InstituteModelContainer" CdmEntityContainer="InstituteEntities">
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="InstituteModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ВидОтчетности">
+            <EntityTypeMapping TypeName="InstituteModel.ВидОтчетности">
+              <MappingFragment StoreEntitySet="ВидОтчетности">
+                <ScalarProperty Name="IdОтчет" ColumnName="IdОтчет" />
+                <ScalarProperty Name="Название" ColumnName="Название" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Дисциплина">
+            <EntityTypeMapping TypeName="InstituteModel.Дисциплина">
+              <MappingFragment StoreEntitySet="Дисциплина">
+                <ScalarProperty Name="IdДисцип" ColumnName="IdДисцип" />
+                <ScalarProperty Name="Название" ColumnName="Название" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ЗавКафедрой">
+            <EntityTypeMapping TypeName="InstituteModel.ЗавКафедрой">
+              <MappingFragment StoreEntitySet="ЗавКафедрой">
+                <ScalarProperty Name="IdЗавКаф" ColumnName="IdЗавКаф" />
+                <ScalarProperty Name="Фамилия" ColumnName="Фамилия" />
+                <ScalarProperty Name="Имя" ColumnName="Имя" />
+                <ScalarProperty Name="Отчество" ColumnName="Отчество" />
+                <ScalarProperty Name="IdСтепень" ColumnName="IdСтепень" />
+                <ScalarProperty Name="IdЗвание" ColumnName="IdЗвание" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Звание">
+            <EntityTypeMapping TypeName="InstituteModel.Звание">
+              <MappingFragment StoreEntitySet="Звание">
+                <ScalarProperty Name="IdЗвание" ColumnName="IdЗвание" />
+                <ScalarProperty Name="Название" ColumnName="Название" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Кафедра">
+            <EntityTypeMapping TypeName="InstituteModel.Кафедра">
+              <MappingFragment StoreEntitySet="Кафедра">
+                <ScalarProperty Name="IdКафедра" ColumnName="IdКафедра" />
+                <ScalarProperty Name="Название" ColumnName="Название" />
+                <ScalarProperty Name="Телефон" ColumnName="Телефон" />
+                <ScalarProperty Name="IdФакультет" ColumnName="IdФакультет" />
+                <ScalarProperty Name="IdЗавКаф" ColumnName="IdЗавКаф" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Квалификация">
+            <EntityTypeMapping TypeName="InstituteModel.Квалификация">
+              <MappingFragment StoreEntitySet="Квалификация">
+                <ScalarProperty Name="IdКвалиф" ColumnName="IdКвалиф" />
+                <ScalarProperty Name="Название" ColumnName="Название" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Специальность">
+            <EntityTypeMapping TypeName="InstituteModel.Специальность">
+              <MappingFragment StoreEntitySet="Специальность">
+                <ScalarProperty Name="IdСпец" ColumnName="IdСпец" />
+                <ScalarProperty Name="Название" ColumnName="Название" />
+                <ScalarProperty Name="IdКвалиф" ColumnName="IdКвалиф" />
+                <ScalarProperty Name="Продолжительность" ColumnName="Продолжительность" />
+                <ScalarProperty Name="IdФормаОбуч" ColumnName="IdФормаОбуч" />
+                <ScalarProperty Name="IdФакультет" ColumnName="IdФакультет" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Степень">
+            <EntityTypeMapping TypeName="InstituteModel.Степень">
+              <MappingFragment StoreEntitySet="Степень">
+                <ScalarProperty Name="IdСтепень" ColumnName="IdСтепень" />
+                <ScalarProperty Name="Название" ColumnName="Название" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="УчебныйПлан">
+            <EntityTypeMapping TypeName="InstituteModel.УчебныйПлан">
+              <MappingFragment StoreEntitySet="УчебныйПлан">
+                <ScalarProperty Name="IdПлан" ColumnName="IdПлан" />
+                <ScalarProperty Name="IdДисцип" ColumnName="IdДисцип" />
+                <ScalarProperty Name="IdСпец" ColumnName="IdСпец" />
+                <ScalarProperty Name="ЧасыЛекции" ColumnName="ЧасыЛекции" />
+                <ScalarProperty Name="ЧасыЛабРабот" ColumnName="ЧасыЛабРабот" />
+                <ScalarProperty Name="ЧасыПракРабот" ColumnName="ЧасыПракРабот" />
+                <ScalarProperty Name="ЧасыКурсового" ColumnName="ЧасыКурсового" />
+                <ScalarProperty Name="IdВидОтчет" ColumnName="IdВидОтчет" />
+                <ScalarProperty Name="Семестр" ColumnName="Семестр" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Факультет">
+            <EntityTypeMapping TypeName="InstituteModel.Факультет">
+              <MappingFragment StoreEntitySet="Факультет">
+                <ScalarProperty Name="IdФакульт" ColumnName="IdФакульт" />
+                <ScalarProperty Name="Название" ColumnName="Название" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ФормаОбучения">
+            <EntityTypeMapping TypeName="InstituteModel.ФормаОбучения">
+              <MappingFragment StoreEntitySet="ФормаОбучения">
+                <ScalarProperty Name="IdФорма" ColumnName="IdФорма" />
+                <ScalarProperty Name="Название" ColumnName="Название" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

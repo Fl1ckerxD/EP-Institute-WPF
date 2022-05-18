@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9b0620074f5e417a8368b67acd89a8ba" Name="Diagram1">
+        <EntityTypeShape EntityType="InstituteModel.sysdiagrams" Width="1.5" PointX="8.75" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="InstituteModel.ВидОтчетности" Width="1.5" PointX="6" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="InstituteModel.Дисциплина" Width="1.5" PointX="6" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="InstituteModel.ЗавКафедрой" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="InstituteModel.Звание" Width="1.5" PointX="1.5" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="InstituteModel.Кафедра" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="InstituteModel.Квалификация" Width="1.5" PointX="3.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="InstituteModel.Специальность" Width="1.5" PointX="6" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="InstituteModel.Степень" Width="1.5" PointX="1.5" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="InstituteModel.УчебныйПлан" Width="1.5" PointX="8.25" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="InstituteModel.Факультет" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="InstituteModel.ФормаОбучения" Width="1.5" PointX="3.75" PointY="8.5" IsExpanded="true" />
+        <AssociationConnector Association="InstituteModel.FK__УчебныйПл__IdВид__2CF2ADDF" ManuallyRouted="false" />
+        <AssociationConnector Association="InstituteModel.FK__УчебныйПл__IdДис__2B0A656D" ManuallyRouted="false" />
+        <AssociationConnector Association="InstituteModel.FK__ЗавКафедр__IdЗва__503BEA1C" ManuallyRouted="false" />
+        <AssociationConnector Association="InstituteModel.FK__ЗавКафедр__IdСте__4F47C5E3" ManuallyRouted="false" />
+        <AssociationConnector Association="InstituteModel.FK__Кафедра__IdЗавКа__634EBE90" ManuallyRouted="false" />
+        <AssociationConnector Association="InstituteModel.FK__Кафедра__IdФакул__625A9A57" ManuallyRouted="false" />
+        <AssociationConnector Association="InstituteModel.FK__Специальн__IdКва__160F4887" ManuallyRouted="false" />
+        <AssociationConnector Association="InstituteModel.FK__Специальн__IdФак__17F790F9" ManuallyRouted="false" />
+        <AssociationConnector Association="InstituteModel.FK__Специальн__IdФор__17036CC0" ManuallyRouted="false" />
+        <AssociationConnector Association="InstituteModel.FK__УчебныйПл__IdСпе__2BFE89A6" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
