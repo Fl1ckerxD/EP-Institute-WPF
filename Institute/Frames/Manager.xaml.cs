@@ -12,21 +12,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Institute.Classes;
-using Institute.Frames;
 
-namespace Institute
+namespace Institute.Frames
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для Manager.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Manager : Page
     {
-        public MainWindow()
+        public Manager()
         {
             InitializeComponent();
-            FrameManager.frmMain = winFrame;
-            FrameManager.frmMain.Navigate(new MainPage());
         }
     }
 }

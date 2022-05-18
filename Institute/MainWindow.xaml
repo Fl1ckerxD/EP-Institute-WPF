@@ -15,6 +15,6 @@
             <Image Source="Resources/college.png" HorizontalAlignment="Left"/>
             <TextBlock Text="Title" FontSize="35" Margin="20,0,0,0" />
         </StackPanel>
-        <Frame x:Name="mainFraim" Grid.Row="1"/>
+        <Frame x:Name="winFrame" Grid.Row="1"/>
     </Grid>
 </Window>
