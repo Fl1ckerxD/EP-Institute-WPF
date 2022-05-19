@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Institute.Classes;
 
 namespace Institute.Frames
 {
@@ -23,6 +24,10 @@ namespace Institute.Frames
         public AddSpeciality()
         {
             InitializeComponent();
+        }
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            cb_qualifi.ItemsSource = ConnectionDB.conDB.Квалификация.ToList();
         }
     }
 }

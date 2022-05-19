@@ -6,10 +6,11 @@
       xmlns:local="clr-namespace:Institute.Frames"
       mc:Ignorable="d" 
       d:DesignHeight="369" d:DesignWidth="792"
-      Title="AddSpeciality">
+      Title="AddSpeciality" Loaded="Page_Loaded">
 
     <Grid>
         <TextBox x:Name="tb_title" Width="140" Height="30" HorizontalAlignment="Left" Margin="30,169,0,170"/>
         <TextBlock Text="Название" Width="60" Height="30" HorizontalAlignment="Left" Margin="33,150,0,189"/>
+        <ComboBox x:Name="cb_qualifi" Width="60" Height="30" ItemsSource="{Binding Название}"/>
     </Grid>
 </Page>
