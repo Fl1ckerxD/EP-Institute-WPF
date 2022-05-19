@@ -19,7 +19,7 @@ namespace Institute.Frames
     /// <summary>
     /// Логика взаимодействия для Manager.xaml
     /// </summary>
-    public partial class Manager : Page // test for commit
+    public partial class Manager : Page
     {
         public Manager()
         {
