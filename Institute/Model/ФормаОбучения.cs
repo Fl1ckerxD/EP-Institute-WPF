@@ -7,23 +7,23 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Institute
+namespace Institute.Model
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Звание
+    public partial class ФормаОбучения
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Звание()
+        public ФормаОбучения()
         {
-            this.ЗавКафедрой = new HashSet<ЗавКафедрой>();
+            this.Специальность = new HashSet<Специальность>();
         }
     
-        public int IdЗвание { get; set; }
+        public int IdФорма { get; set; }
         public string Название { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ЗавКафедрой> ЗавКафедрой { get; set; }
+        public virtual ICollection<Специальность> Специальность { get; set; }
     }
 }

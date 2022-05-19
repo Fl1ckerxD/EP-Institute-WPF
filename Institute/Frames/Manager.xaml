@@ -6,9 +6,15 @@
       xmlns:local="clr-namespace:Institute.Frames"
       mc:Ignorable="d" 
       d:DesignHeight="369" d:DesignWidth="792"
-      Title="Manager">
+      Title="Manager" Loaded="Page_Loaded">
 
     <Grid>
-        
+        <DataGrid x:Name="dataGrid" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ФИО" Binding="{Binding FIO}"/>
+                <DataGridTextColumn Header="Степень" Binding="{Binding Степень.Название}"/>
+                <DataGridTextColumn Header="Звание" Binding="{Binding Звание.Название}"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Page>

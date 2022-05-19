@@ -1,19 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using Institute.Classes;
+﻿using Institute.Classes;
 using Institute.Frames;
+using System;
+using System.Windows;
 
 namespace Institute
 {
@@ -27,6 +15,24 @@ namespace Institute
             InitializeComponent();
             FrameManager.frmMain = winFrame;
             FrameManager.frmMain.Navigate(new MainPage());
+        }
+
+        private void b_back_Click(object sender, RoutedEventArgs e)
+        {
+            FrameManager.frmMain.GoBack();
+        }
+
+        private void Window_ContentRendered(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void Window_LayoutUpdated(object sender, EventArgs e)
+        {
+            if (FrameManager.frmMain.CanGoBack)
+                b_back.Visibility = Visibility.Visible;
+            else
+                b_back.Visibility = Visibility.Hidden;
         }
     }
 }

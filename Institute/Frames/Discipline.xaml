@@ -6,9 +6,20 @@
       xmlns:local="clr-namespace:Institute.Frames"
       mc:Ignorable="d" 
       d:DesignHeight="369" d:DesignWidth="792"
-      Title="Discipline">
+      Title="Discipline" Loaded="Page_Loaded">
 
     <Grid>
-        
+        <DataGrid x:Name="dataGrid" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Дисциплина" Binding="{Binding Дисциплина.Название}"/>
+                <DataGridTextColumn Header="Специальность" Binding="{Binding Специальность.Название}"/>
+                <DataGridTextColumn Header="Часы лекций" Binding="{Binding ЧасыЛекции}"/>
+                <DataGridTextColumn Header="Часы лаб. работ" Binding="{Binding ЧасыЛабРабот}"/>
+                <DataGridTextColumn Header="Часы  прак. работ" Binding="{Binding ЧасыПракРабот}"/>
+                <DataGridTextColumn Header="Часы курсового проектирования" Binding="{Binding ЧасыКурсового}"/>
+                <DataGridTextColumn Header="Вид отчетности" Binding="{Binding ВидОтчетности.Название}"/>
+                <DataGridTextColumn Header="Семестр" Binding="{Binding Семестр}"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Page>

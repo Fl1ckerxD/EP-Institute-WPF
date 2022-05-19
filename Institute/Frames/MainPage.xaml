@@ -10,10 +10,10 @@
 
     <Grid>
         <StackPanel VerticalAlignment="Center">
-            <Button x:Name="b_Speciality" Content="Специальности" Style="{StaticResource MainButton}" Width="130" Margin="0,0,0,10" Click="b_Speciality_Click"/>
-            <Button x:Name="b_Department" Content="Кафедры" Style="{StaticResource MainButton}" Width="130"  Margin="0,0,0,10" Click="b_Department_Click"/>
-            <Button x:Name="b_Discipline" Content="Дисциплины" Style="{StaticResource MainButton}" Width="130"  Margin="0,0,0,10" Click="b_Discipline_Click"/>
-            <Button x:Name="b_Manager" Content="Зав. кафедрой" Style="{StaticResource MainButton}" Width="130"  Margin="0,0,0,10" Click="b_Manager_Click"/>
+            <Button x:Name="b_Speciality" Content="Специальности" Style="{StaticResource MainButton}" Width="160" Margin="0,0,0,10" Click="b_Speciality_Click"/>
+            <Button x:Name="b_Department" Content="Кафедры" Style="{StaticResource MainButton}" Width="160"  Margin="0,0,0,10" Click="b_Department_Click"/>
+            <Button x:Name="b_Discipline" Content="Учебный план" Style="{StaticResource MainButton}" Width="160"  Margin="0,0,0,10" Click="b_Discipline_Click"/>
+            <Button x:Name="b_Manager" Content="Зав. кафедрой" Style="{StaticResource MainButton}" Width="160"  Margin="0,0,0,10" Click="b_Manager_Click"/>
         </StackPanel>
     </Grid>
 </Page>

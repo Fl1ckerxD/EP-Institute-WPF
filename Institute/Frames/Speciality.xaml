@@ -6,12 +6,16 @@
       xmlns:local="clr-namespace:Institute.Frames"
       mc:Ignorable="d" 
       d:DesignHeight="369" d:DesignWidth="792"
-      Title="Speciality">
+      Title="Speciality" Loaded="Page_Loaded">
 
     <Grid>
-        <DataGrid>
+        <DataGrid x:Name="dataGrid" AutoGenerateColumns="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Название" Binding="{Binding Специальность}"/>
+                <DataGridTextColumn Header="Название" Binding="{Binding Название}"/>
+                <DataGridTextColumn Header="Квалификация" Binding="{Binding Квалификация.Название}"/>
+                <DataGridTextColumn Header="Продолжительность" Binding="{Binding Продолжительность}"/>
+                <DataGridTextColumn Header="Форма обучения" Binding="{Binding ФормаОбучения.Название}"/>
+                <DataGridTextColumn Header="Факультет" Binding="{Binding Факультет.Название}"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

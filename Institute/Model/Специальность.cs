@@ -7,29 +7,30 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Institute
+namespace Institute.Model
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class ЗавКафедрой
+    public partial class Специальность
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public ЗавКафедрой()
+        public Специальность()
         {
-            this.Кафедра = new HashSet<Кафедра>();
+            this.УчебныйПлан = new HashSet<УчебныйПлан>();
         }
     
-        public int IdЗавКаф { get; set; }
-        public string Фамилия { get; set; }
-        public string Имя { get; set; }
-        public string Отчество { get; set; }
-        public int IdСтепень { get; set; }
-        public int IdЗвание { get; set; }
+        public int IdСпец { get; set; }
+        public string Название { get; set; }
+        public int IdКвалиф { get; set; }
+        public string Продолжительность { get; set; }
+        public int IdФормаОбуч { get; set; }
+        public int IdФакультет { get; set; }
     
-        public virtual Звание Звание { get; set; }
-        public virtual Степень Степень { get; set; }
+        public virtual Квалификация Квалификация { get; set; }
+        public virtual Факультет Факультет { get; set; }
+        public virtual ФормаОбучения ФормаОбучения { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Кафедра> Кафедра { get; set; }
+        public virtual ICollection<УчебныйПлан> УчебныйПлан { get; set; }
     }
 }

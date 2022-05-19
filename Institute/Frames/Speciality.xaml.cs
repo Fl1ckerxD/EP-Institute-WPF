@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Institute.Classes;
 
 namespace Institute.Frames
 {
@@ -23,7 +24,11 @@ namespace Institute.Frames
         public Speciality()
         {
             InitializeComponent();
+        }
 
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            dataGrid.ItemsSource = ConnectionDB.conDB.Специальность.ToList();
         }
     }
 }

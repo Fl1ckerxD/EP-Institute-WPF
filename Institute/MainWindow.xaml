@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Institute"
         mc:Ignorable="d"
-        Title="Главное окно" Height="450" Width="800" MinHeight="450" MinWidth="800">
+        Title="Моя программа" Height="450" Width="800" MinHeight="450" MinWidth="800" LayoutUpdated="Window_LayoutUpdated">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
@@ -15,6 +15,7 @@
             <Image Source="Resources/college.png" HorizontalAlignment="Left"/>
             <TextBlock Text="Title" FontSize="35" Margin="20,0,0,0" />
         </StackPanel>
-        <Frame x:Name="winFrame" Grid.Row="1"/>
+        <Button x:Name="b_back" Grid.Row="0" Content="Назад" Style="{StaticResource ResourceKey=MainButton}" Width="75" Height="35" HorizontalAlignment="Right" Margin="0,0,15,0" Click="b_back_Click"/>
+        <Frame x:Name="winFrame" Grid.Row="1" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>

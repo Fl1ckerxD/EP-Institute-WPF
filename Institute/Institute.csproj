@@ -66,45 +66,46 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Classes\ConnectionDB.cs" />
-    <Compile Include="InstituteDB.cs">
+    <Compile Include="Model\ZafKaf.cs" />
+    <Compile Include="Model\InstituteDB.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>InstituteDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="sysdiagrams.cs">
+    <Compile Include="Model\sysdiagrams.cs">
       <DependentUpon>InstituteDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="ВидОтчетности.cs">
+    <Compile Include="Model\ВидОтчетности.cs">
       <DependentUpon>InstituteDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Дисциплина.cs">
+    <Compile Include="Model\Дисциплина.cs">
       <DependentUpon>InstituteDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="ЗавКафедрой.cs">
+    <Compile Include="Model\ЗавКафедрой.cs">
       <DependentUpon>InstituteDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Звание.cs">
+    <Compile Include="Model\Звание.cs">
       <DependentUpon>InstituteDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Кафедра.cs">
+    <Compile Include="Model\Кафедра.cs">
       <DependentUpon>InstituteDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Квалификация.cs">
+    <Compile Include="Model\Квалификация.cs">
       <DependentUpon>InstituteDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Специальность.cs">
+    <Compile Include="Model\Специальность.cs">
       <DependentUpon>InstituteDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Степень.cs">
+    <Compile Include="Model\Степень.cs">
       <DependentUpon>InstituteDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="УчебныйПлан.cs">
+    <Compile Include="Model\УчебныйПлан.cs">
       <DependentUpon>InstituteDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Факультет.cs">
+    <Compile Include="Model\Факультет.cs">
       <DependentUpon>InstituteDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="ФормаОбучения.cs">
+    <Compile Include="Model\ФормаОбучения.cs">
       <DependentUpon>InstituteDB.tt</DependentUpon>
     </Compile>
     <Page Include="Frames\Department.xaml">
@@ -151,12 +152,12 @@
     <Compile Include="Frames\Speciality.xaml.cs">
       <DependentUpon>Speciality.xaml</DependentUpon>
     </Compile>
-    <Compile Include="InstituteDB.Context.cs">
+    <Compile Include="Model\InstituteDB.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>InstituteDB.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="InstituteDB.Designer.cs">
+    <Compile Include="Model\InstituteDB.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>InstituteDB.edmx</DependentUpon>
@@ -188,11 +189,11 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="InstituteDB.edmx">
+    <EntityDeploy Include="Model\InstituteDB.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>InstituteDB.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="InstituteDB.edmx.diagram">
+    <None Include="Model\InstituteDB.edmx.diagram">
       <DependentUpon>InstituteDB.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
@@ -205,12 +206,12 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="InstituteDB.Context.tt">
+    <Content Include="Model\InstituteDB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>InstituteDB.Context.cs</LastGenOutput>
       <DependentUpon>InstituteDB.edmx</DependentUpon>
     </Content>
-    <Content Include="InstituteDB.tt">
+    <Content Include="Model\InstituteDB.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>InstituteDB.edmx</DependentUpon>
       <LastGenOutput>InstituteDB.cs</LastGenOutput>
