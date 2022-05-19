@@ -9,7 +9,17 @@
       Title="Department" Loaded="Page_Loaded">
 
     <Grid>
-        <DataGrid x:Name="dataGrid" AutoGenerateColumns="False">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="9*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Button x:Name="b_addNew" Grid.Row="0" Grid.Column="1" Content="Добавить" Style="{StaticResource MainButton}" Width="100" HorizontalAlignment="Left"/>
+        <DataGrid x:Name="dataGrid" Grid.Row="1" Grid.Column="1" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Название" Binding="{Binding Название}"/>
                 <DataGridTextColumn Header="Телефон" Binding="{Binding Телефон}"/>

@@ -66,6 +66,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Classes\ConnectionDB.cs" />
+    <Compile Include="Frames\AddSpeciality.xaml.cs">
+      <DependentUpon>AddSpeciality.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Model\ZafKaf.cs" />
     <Compile Include="Model\InstituteDB.cs">
       <AutoGen>True</AutoGen>
@@ -108,6 +111,10 @@
     <Compile Include="Model\ФормаОбучения.cs">
       <DependentUpon>InstituteDB.tt</DependentUpon>
     </Compile>
+    <Page Include="Frames\AddSpeciality.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Frames\Department.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

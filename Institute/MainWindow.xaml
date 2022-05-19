@@ -11,8 +11,8 @@
             <RowDefinition Height="50"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0" Orientation="Horizontal" Background="#03899C">
-            <Image Source="Resources/college.png" HorizontalAlignment="Left"/>
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Background="{StaticResource main}">
+            <Image Source="Resources/college.png" HorizontalAlignment="Left" Margin="10,0,0,0"/>
             <TextBlock Text="Title" FontSize="35" Margin="20,0,0,0" />
         </StackPanel>
         <Button x:Name="b_back" Grid.Row="0" Content="Назад" Style="{StaticResource ResourceKey=MainButton}" Width="75" Height="35" HorizontalAlignment="Right" Margin="0,0,15,0" Click="b_back_Click"/>
