@@ -9,8 +9,19 @@
       Title="AddSpeciality" Loaded="Page_Loaded">
 
     <Grid>
-        <TextBox x:Name="tb_title" Width="140" Height="30" HorizontalAlignment="Left" Margin="30,169,0,170"/>
-        <TextBlock Text="Название" Width="60" Height="30" HorizontalAlignment="Left" Margin="33,150,0,189"/>
-        <ComboBox x:Name="cb_qualifi" Width="60" Height="30" ItemsSource="{Binding Название}"/>
+        <TextBox x:Name="tb_title" Width="140" Height="30" HorizontalAlignment="Left" Margin="216,102,0,237"/>
+        <TextBlock Text="Название:" Width="60" Height="30" HorizontalAlignment="Left" Margin="151,102,0,237" TextAlignment="Right"/>
+        <ComboBox x:Name="cb_qualifi" Width="100" Height="30" Margin="216,152,476,187"/>
+        <TextBlock Text="Квалификация:" Width="85" Height="25" Margin="126,155,581,189" TextAlignment="Right"/>
+        <ComboBox x:Name="cb_forma" Width="100" Height="30" Margin="216,202,476,137"/>
+        <TextBlock Text="Форма обучения:" Width="100" Height="25" Margin="111,207,581,137" TextAlignment="Right"/>
+        <ComboBox x:Name="cb_facult" Width="100" Height="30" Margin="216,252,476,87" SelectedValue="{Binding Path=Факультет.IdФакульт}"/>
+        <TextBlock Text="Факультет:" Width="65" Height="25" Margin="146,252,581,92" TextAlignment="Right"/>
+        <TextBlock Text="Продолжительность:" Width="125" Height="25" Margin="382,209,285,135" TextAlignment="Right" />
+        <TextBox x:Name="tb_year" Width="60" Height="35" Margin="512,204,220,130" PreviewTextInput="NumberValidationTextBox"/>
+        <TextBlock Text="года" Width="35" Height="25" Margin="524,239,233,105"/>
+        <TextBox x:Name="tb_month" Width="60" Height="35" Margin="587,204,145,130" PreviewTextInput="NumberValidationTextBox"/>
+        <TextBlock Text="месяцы" Width="45" Height="25" Margin="594,239,153,105"/>
+        <Button x:Name="b_addNew" Content="Добавить" Style="{StaticResource MainButton}" Width="100" Height="40" Margin="333,297,359,32" Click="b_addNew_Click"/>
     </Grid>
 </Page>
