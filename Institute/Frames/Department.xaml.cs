@@ -29,5 +29,10 @@ namespace Institute.Frames
         {
             dataGrid.ItemsSource = ConnectionDB.conDB.Кафедра.ToList();
         }
+
+        private void b_addNew_Click(object sender, RoutedEventArgs e)
+        {
+            FrameManager.frmMain.Navigate(new Insert.AddDepartment());
+        }
     }
 }

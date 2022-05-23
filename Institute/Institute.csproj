@@ -66,6 +66,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Classes\ConnectionDB.cs" />
+    <Compile Include="Frames\Insert\AddDepartment.xaml.cs">
+      <DependentUpon>AddDepartment.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Frames\Insert\AddManager.xaml.cs">
       <DependentUpon>AddManager.xaml</DependentUpon>
     </Compile>
@@ -114,6 +117,10 @@
     <Compile Include="Model\ФормаОбучения.cs">
       <DependentUpon>InstituteDB.tt</DependentUpon>
     </Compile>
+    <Page Include="Frames\Insert\AddDepartment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Frames\Insert\AddManager.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

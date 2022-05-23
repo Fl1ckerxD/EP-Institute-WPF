@@ -15,7 +15,7 @@
         <TextBlock Text="Квалификация:" Width="85" Height="25" Margin="126,155,581,189" TextAlignment="Right"/>
         <ComboBox x:Name="cb_forma" DisplayMemberPath="Название" SelectedValuePath="IdФорма" Width="100" Height="30" Margin="216,202,476,137"/>
         <TextBlock Text="Форма обучения:" Width="100" Height="25" Margin="111,207,581,137" TextAlignment="Right"/>
-        <ComboBox x:Name="cb_facult" DisplayMemberPath="Название" SelectedValuePath="IdФакульт" Width="100" Height="30" Margin="216,252,476,87" SelectedValue="{Binding Path=Факультет.IdФакульт}"/>
+        <ComboBox x:Name="cb_facult" DisplayMemberPath="Название" SelectedValuePath="IdФакульт" Width="100" Height="30" Margin="216,252,476,87"/>
         <TextBlock Text="Факультет:" Width="65" Height="25" Margin="146,252,581,92" TextAlignment="Right"/>
         <TextBlock Text="Продолжительность:" Width="125" Height="25" Margin="382,209,285,135" TextAlignment="Right" />
         <TextBox x:Name="tb_year" Width="60" Height="35" Margin="512,204,220,130" PreviewTextInput="NumberValidationTextBox"/>
