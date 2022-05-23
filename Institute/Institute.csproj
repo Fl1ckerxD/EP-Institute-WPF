@@ -72,6 +72,9 @@
     <Compile Include="Frames\Insert\AddManager.xaml.cs">
       <DependentUpon>AddManager.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Frames\Insert\AddPlan.xaml.cs">
+      <DependentUpon>AddPlan.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Frames\Insert\AddSpeciality.xaml.cs">
       <DependentUpon>AddSpeciality.xaml</DependentUpon>
     </Compile>
@@ -122,6 +125,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Frames\Insert\AddManager.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Frames\Insert\AddPlan.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
