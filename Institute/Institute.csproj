@@ -69,6 +69,12 @@
     <Compile Include="Frames\Insert\AddDepartment.xaml.cs">
       <DependentUpon>AddDepartment.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Frames\Insert\AddDiscipline.xaml.cs">
+      <DependentUpon>AddDiscipline.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Frames\Insert\AddFacultet.xaml.cs">
+      <DependentUpon>AddFacultet.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Frames\Insert\AddManager.xaml.cs">
       <DependentUpon>AddManager.xaml</DependentUpon>
     </Compile>
@@ -121,6 +127,14 @@
       <DependentUpon>InstituteDB.tt</DependentUpon>
     </Compile>
     <Page Include="Frames\Insert\AddDepartment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Frames\Insert\AddDiscipline.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Frames\Insert\AddFacultet.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

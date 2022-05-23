@@ -1,0 +1,16 @@
+﻿<Page x:Class="Institute.Frames.Insert.AddDiscipline"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Institute.Frames.Insert"
+      mc:Ignorable="d" 
+      d:DesignHeight="369" d:DesignWidth="792"
+      Title="AddDiscipline">
+
+    <Grid>
+        <Button x:Name="b_addNew" Content="Добавить" Style="{StaticResource MainButton}" Width="100" Height="40" Margin="333,297,359,32" Click="b_addNew_Click" />
+        <TextBox x:Name="tb_title" Width="100" Height="30"/>
+        <TextBlock Text="Название:" Width="100" Height="20" TextAlignment="Right" Margin="241,175,451,174"/>
+    </Grid>
+</Page>
