@@ -33,7 +33,7 @@ namespace Institute.Frames
 
         private void b_addNew_Click(object sender, RoutedEventArgs e)
         {
-            FrameManager.frmMain.Navigate(new AddSpeciality());
+            FrameManager.frmMain.Navigate(new Insert.AddSpeciality());
         }
     }
 }

@@ -66,7 +66,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Classes\ConnectionDB.cs" />
-    <Compile Include="Frames\AddSpeciality.xaml.cs">
+    <Compile Include="Frames\Insert\AddManager.xaml.cs">
+      <DependentUpon>AddManager.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Frames\Insert\AddSpeciality.xaml.cs">
       <DependentUpon>AddSpeciality.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\ZafKaf.cs" />
@@ -111,7 +114,11 @@
     <Compile Include="Model\ФормаОбучения.cs">
       <DependentUpon>InstituteDB.tt</DependentUpon>
     </Compile>
-    <Page Include="Frames\AddSpeciality.xaml">
+    <Page Include="Frames\Insert\AddManager.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Frames\Insert\AddSpeciality.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -204,6 +211,19 @@
       <DependentUpon>InstituteDB.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Institute.Model.InstituteEntities.datasource" />
+    <None Include="Properties\DataSources\Institute.Model.sysdiagrams.datasource" />
+    <None Include="Properties\DataSources\Institute.Model.ВидОтчетности.datasource" />
+    <None Include="Properties\DataSources\Institute.Model.Дисциплина.datasource" />
+    <None Include="Properties\DataSources\Institute.Model.ЗавКафедрой.datasource" />
+    <None Include="Properties\DataSources\Institute.Model.Звание.datasource" />
+    <None Include="Properties\DataSources\Institute.Model.Кафедра.datasource" />
+    <None Include="Properties\DataSources\Institute.Model.Квалификация.datasource" />
+    <None Include="Properties\DataSources\Institute.Model.Специальность.datasource" />
+    <None Include="Properties\DataSources\Institute.Model.Степень.datasource" />
+    <None Include="Properties\DataSources\Institute.Model.УчебныйПлан.datasource" />
+    <None Include="Properties\DataSources\Institute.Model.Факультет.datasource" />
+    <None Include="Properties\DataSources\Institute.Model.ФормаОбучения.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

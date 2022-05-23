@@ -1,0 +1,26 @@
+﻿<Page x:Class="Institute.Frames.Insert.AddManager"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Institute.Frames.Insert"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AddManager" Loaded="Page_Loaded">
+
+    <Grid>
+        <Button x:Name="b_addNew" Content="Добавить" Style="{StaticResource MainButton}" Width="100" Height="40" Margin="333,297,359,32" Click="b_addNew_Click"/>
+
+        <TextBox x:Name="tb_lastName" Width="150" Height="30" Margin="210,116,440,304"/>
+        <TextBlock Text="Фамилия:" TextAlignment="Right" Width="60" Height="20" Margin="145,121,595,309"/>
+
+        <TextBox x:Name="tb_name" Width="150" Height="30" Margin="210,162,440,258"/>
+        <TextBlock Text="Имя:" TextAlignment="Right" Width="60" Height="20" Margin="145,167,595,263"/>
+
+        <TextBox x:Name="tb_patronymic" Width="150" Height="30" Margin="210,205,440,215"/>
+        <TextBlock Text="Отчество:" TextAlignment="Right" Width="60" Height="20" Margin="145,210,595,220"/>
+
+        <ComboBox x:Name="cb_rank" DisplayMemberPath="Название" SelectedValuePath="IdЗвание" Width="80" Height="30" Margin="468,162,252,258"/>
+        <ComboBox x:Name="cb_stepen" DisplayMemberPath="Название" SelectedValuePath="IdСтепень" Width="80" Height="30" Margin="468,116,252,304"/>
+    </Grid>
+</Page>
