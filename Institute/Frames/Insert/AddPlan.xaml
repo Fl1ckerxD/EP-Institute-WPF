@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:Institute.Frames.Insert"
       mc:Ignorable="d" 
       d:DesignHeight="369" d:DesignWidth="792"
-      Title="AddPlan" Loaded="Page_Loaded">
+      Title="Добавление нового учебного плана" Loaded="Page_Loaded">
 
     <Grid>
         <Button x:Name="b_addNew" Content="Добавить" Style="{StaticResource MainButton}" Width="100" Height="40" Margin="333,297,359,32" Click="b_addNew_Click" />

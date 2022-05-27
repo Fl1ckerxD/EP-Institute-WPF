@@ -1,15 +1,15 @@
-﻿<Page x:Class="Institute.Frames.Insert.AddDepartment"
+﻿<Page x:Class="Institute.Frames.Update.UpdateDepartment"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:Institute.Frames.Insert"
+      xmlns:local="clr-namespace:Institute.Frames.Update"
       mc:Ignorable="d" 
       d:DesignHeight="369" d:DesignWidth="792"
-      Title="Добавление кафедры" Loaded="Page_Loaded">
+      Title="Редактирование кафедры" Loaded="Page_Loaded">
 
     <Grid>
-        <Button x:Name="b_addNew" Content="Добавить" Style="{StaticResource MainButton}" Width="100" Height="40" Margin="333,297,359,32" Click="b_addNew_Click" />
+        <Button x:Name="b_save" Content="Сохранить" Style="{StaticResource MainButton}" Width="100" Height="40" Margin="333,297,359,32" Click="b_save_Click" />
         <TextBox x:Name="tb_phone" Width="160" Height="35" PreviewTextInput="NumberValidationTextBox" MaxLength="12"/>
         <TextBox x:Name="tb_title" Width="160" Height="35" Margin="316,119,316,215"/>
         <ComboBox x:Name="cb_facult" DisplayMemberPath="Название" SelectedValuePath="IdФакульт" Width="100" Height="30" Margin="502,172,190,167"/>

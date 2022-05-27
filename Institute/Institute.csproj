@@ -84,6 +84,9 @@
     <Compile Include="Frames\Insert\AddSpeciality.xaml.cs">
       <DependentUpon>AddSpeciality.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Frames\Update\UpdateDepartment.xaml.cs">
+      <DependentUpon>UpdateDepartment.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Model\ZafKaf.cs" />
     <Compile Include="Model\InstituteDB.cs">
       <AutoGen>True</AutoGen>
@@ -167,6 +170,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Frames\Speciality.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Frames\Update\UpdateDepartment.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

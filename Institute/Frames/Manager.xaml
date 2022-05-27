@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:Institute.Frames"
       mc:Ignorable="d" 
       d:DesignHeight="369" d:DesignWidth="792"
-      Title="Manager" Loaded="Page_Loaded">
+      Title="Заведующие кафедрой" Loaded="Page_Loaded">
 
     <Grid>
         <Grid.ColumnDefinitions>

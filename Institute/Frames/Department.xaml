@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:Institute.Frames"
       mc:Ignorable="d" 
       d:DesignHeight="369" d:DesignWidth="792"
-      Title="Department" Loaded="Page_Loaded">
+      Title="Кафедры" Loaded="Page_Loaded">
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -29,6 +29,16 @@
                 <DataGridTextColumn Header="Название" Binding="{Binding Название}"/>
                 <DataGridTextColumn Header="Телефон" Binding="{Binding Телефон}"/>
                 <DataGridTextColumn Header="Зав. Кафедрой" Binding="{Binding ЗавКафедрой.FIO}"/>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.Header>
+                        <TextBlock Text="Изменить"/>
+                    </DataGridTemplateColumn.Header>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="b_edit" Content="Изменить" Background="{StaticResource second}" Click="b_edit_Click"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

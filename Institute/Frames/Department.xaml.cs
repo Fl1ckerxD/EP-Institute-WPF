@@ -43,7 +43,7 @@ namespace Institute.Frames
 
         private void cb_orderBy_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            switch (cb_orderBy.SelectedIndex) 
+            switch (cb_orderBy.SelectedIndex)
             {
                 case 0:
                     dataGrid.ItemsSource = ((List<Model.Кафедра>)dataGrid.ItemsSource).OrderBy(u => u.Название).ToList();
@@ -51,6 +51,15 @@ namespace Institute.Frames
                 case 1:
                     dataGrid.ItemsSource = ((List<Model.Кафедра>)dataGrid.ItemsSource).OrderByDescending(u => u.Название).ToList();
                     break;
+            }
+        }
+
+        private void b_edit_Click(object sender, RoutedEventArgs e)
+        {
+            if (dataGrid.SelectedItem as Model.Кафедра != null)
+            {
+                int id = (dataGrid.SelectedItem as Model.Кафедра).IdКафедра;
+                FrameManager.frmMain.Navigate(new Update.UpdateDepartment(id));
             }
         }
     }

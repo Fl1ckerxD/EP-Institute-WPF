@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:Institute.Frames"
       mc:Ignorable="d" 
       d:DesignHeight="369" d:DesignWidth="792"
-      Title="Главное окно">
+      Title="Главное меню">
 
     <Grid>
         <StackPanel VerticalAlignment="Center">
