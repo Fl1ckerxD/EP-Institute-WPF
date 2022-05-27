@@ -19,6 +19,11 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Button x:Name="b_addNew" Grid.Row="0" Grid.Column="1" Content="Добавить" Style="{StaticResource MainButton}" Width="100" HorizontalAlignment="Left" Click="b_addNew_Click"/>
+        <TextBox x:Name="tb_search" Grid.Row="0" Grid.Column="1" Width="400" Height="30" VerticalAlignment="Center" HorizontalAlignment="Right" TextChanged="tb_search_TextChanged" Margin="0,0,50,0"/>
+        <ComboBox x:Name="cb_orderBy" Grid.Column="1" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Right"  Width="50" Height="30" SelectionChanged="cb_orderBy_SelectionChanged">
+            <ComboBoxItem Content="A-Я"/>
+            <ComboBoxItem Content="Я-А"/>
+        </ComboBox>
         <DataGrid x:Name="dataGrid" Grid.Row="1" Grid.Column="1" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Название" Binding="{Binding Название}"/>

@@ -34,5 +34,24 @@ namespace Institute.Frames
         {
             FrameManager.frmMain.Navigate(new Insert.AddDepartment());
         }
+
+        private void tb_search_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var search = tb_search.Text;
+            dataGrid.ItemsSource = ConnectionDB.conDB.Кафедра.Where(u => u.Название.Contains(search)).ToList();
+        }
+
+        private void cb_orderBy_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            switch (cb_orderBy.SelectedIndex) 
+            {
+                case 0:
+                    dataGrid.ItemsSource = ((List<Model.Кафедра>)dataGrid.ItemsSource).OrderBy(u => u.Название).ToList();
+                    break;
+                case 1:
+                    dataGrid.ItemsSource = ((List<Model.Кафедра>)dataGrid.ItemsSource).OrderByDescending(u => u.Название).ToList();
+                    break;
+            }
+        }
     }
 }
