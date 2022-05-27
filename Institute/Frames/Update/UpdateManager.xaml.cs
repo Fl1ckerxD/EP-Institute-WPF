@@ -20,9 +20,16 @@ namespace Institute.Frames.Update
     /// </summary>
     public partial class UpdateManager : Page
     {
-        public UpdateManager()
+        private int idDepart;
+        public UpdateManager(int idDepart)
         {
             InitializeComponent();
+            this.idDepart = idDepart;
+        }
+
+        private void b_save_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
