@@ -54,5 +54,14 @@ namespace Institute.Frames
             var search = tb_search.Text;
             dataGrid.ItemsSource = ConnectionDB.conDB.Специальность.Where(u => u.Название.Contains(search)).ToList();
         }
+
+        private void b_edit_Click(object sender, RoutedEventArgs e)
+        {
+            if (dataGrid.SelectedItem as Model.Специальность != null)
+            {
+                int id = (dataGrid.SelectedItem as Model.Специальность).IdСпец;
+                FrameManager.frmMain.Navigate(new Update.UpdateSpeciality(id));
+            }
+        }
     }
 }

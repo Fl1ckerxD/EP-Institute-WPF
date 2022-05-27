@@ -54,5 +54,14 @@ namespace Institute.Frames
             var search = tb_search.Text;
             dataGrid.ItemsSource = ConnectionDB.conDB.УчебныйПлан.Where(u => u.Дисциплина.Название.Contains(search)).ToList();
         }
+
+        private void b_edit_Click(object sender, RoutedEventArgs e)
+        {
+            if(dataGrid.SelectedItem as Model.УчебныйПлан != null)
+            {
+                int id = (dataGrid.SelectedItem as Model.УчебныйПлан).IdПлан;
+                FrameManager.frmMain.Navigate(new Update.UpdatePlan(id));
+            }
+        }
     }
 }

@@ -1,0 +1,22 @@
+﻿<Page x:Class="Institute.Frames.Update.UpdatePlan"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Institute.Frames.Update"
+      mc:Ignorable="d" 
+      d:DesignHeight="369" d:DesignWidth="792"
+      Title="Редактирование учебного плана">
+
+    <Grid>
+        <Button x:Name="b_save" Content="Сохранить" Style="{StaticResource MainButton}" Width="100" Height="40" Margin="333,297,359,32" Click="b_save_Click" />
+        <ComboBox x:Name="cb_discip" DisplayMemberPath="Название" SelectedValuePath="IdДисцип" Width="100" Height="30" Margin="122,127,570,212"/>
+        <ComboBox x:Name="cb_spec" DisplayMemberPath="Название" SelectedValuePath="IdСпец" Width="100" Height="30" Margin="122,170,570,169"/>
+        <ComboBox x:Name="cb_otchet" DisplayMemberPath="Название" SelectedValuePath="IdОтчет" Width="100" Height="30" Margin="122,213,570,126"/>
+        <TextBox x:Name="tb_lek" Width="50" Height="30" Margin="371,170,371,169" PreviewTextInput="NumberValidationTextBox"/>
+        <TextBox x:Name="tb_lab" Width="50" Height="30" Margin="308,170,434,169" PreviewTextInput="NumberValidationTextBox"/>
+        <TextBox x:Name="tb_parc" Width="50" Height="30" Margin="435,128,307,211" PreviewTextInput="NumberValidationTextBox"/>
+        <TextBox x:Name="tb_kurs" Width="50" Height="30" Margin="371,128,371,211" PreviewTextInput="NumberValidationTextBox"/>
+        <TextBox x:Name="tb_semestr" Width="50" Height="30" Margin="308,128,434,211" PreviewTextInput="NumberValidationTextBox"/>
+    </Grid>
+</Page>

@@ -54,5 +54,14 @@ namespace Institute.Frames
             var search = tb_search.Text;
             dataGrid.ItemsSource = ConnectionDB.conDB.ЗавКафедрой.Where(u => u.Фамилия.Contains(search)).ToList();
         }
+
+        private void b_edit_Click(object sender, RoutedEventArgs e)
+        {
+            if (dataGrid.SelectedItem as Model.ЗавКафедрой != null)
+            {
+                int id = (dataGrid.SelectedItem as Model.ЗавКафедрой).IdЗавКаф;
+                FrameManager.frmMain.Navigate(new Update.UpdateManager(id));
+            }
+        }
     }
 }

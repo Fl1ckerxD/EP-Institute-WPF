@@ -34,6 +34,16 @@
                 <DataGridTextColumn Header="Часы курсового проектирования" Binding="{Binding ЧасыКурсового}"/>
                 <DataGridTextColumn Header="Вид отчетности" Binding="{Binding ВидОтчетности.Название}"/>
                 <DataGridTextColumn Header="Семестр" Binding="{Binding Семестр}"/>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.Header>
+                        <TextBlock Text="Изменить"/>
+                    </DataGridTemplateColumn.Header>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="b_edit" Content="Изменить" Background="{StaticResource second}" Click="b_edit_Click"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>
