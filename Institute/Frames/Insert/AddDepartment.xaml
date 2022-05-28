@@ -9,10 +9,41 @@
       Title="Добавление кафедры" Loaded="Page_Loaded">
 
     <Grid>
-        <Button x:Name="b_addNew" Content="Добавить" Style="{StaticResource MainButton}" Width="100" Height="40" Margin="333,297,359,32" Click="b_addNew_Click" />
-        <TextBox x:Name="tb_phone" Width="160" Height="35" PreviewTextInput="NumberValidationTextBox" MaxLength="12"/>
-        <TextBox x:Name="tb_title" Width="160" Height="35" Margin="316,119,316,215"/>
-        <ComboBox x:Name="cb_facult" DisplayMemberPath="Название" SelectedValuePath="IdФакульт" Width="100" Height="30" Margin="502,172,190,167"/>
-        <ComboBox x:Name="cb_manager" DisplayMemberPath="FIO" SelectedValuePath="IdЗавКаф" Width="100" Height="30" Margin="502,124,190,215"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="9*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Button x:Name="b_addNew" Grid.Row="2" Grid.Column="1" Content="Добавить" Style="{StaticResource MainButton}" Width="100" Height="40" Click="b_addNew_Click"/>
+
+        <StackPanel Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <TextBlock Text="Номер телефона:" VerticalAlignment="Center" Margin="0,0,20,0"/>
+                <TextBox x:Name="tb_phone" Width="160" Height="35" PreviewTextInput="NumberValidationTextBox" MaxLength="12"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,30,0,0" >
+                <TextBlock Text="Название:" VerticalAlignment="Center" Margin="0,0,20,0"/>
+                <TextBox x:Name="tb_title" Width="160" Height="35"/>
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <TextBlock Text="Факультет:" VerticalAlignment="Center" Margin="0,0,20,0"/>
+                <ComboBox x:Name="cb_facult" DisplayMemberPath="Название" SelectedValuePath="IdФакульт" Width="100" Height="30"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,30,0,0">
+                <TextBlock Text="Зав.Кафедрой:" VerticalAlignment="Center" Margin="0,0,20,0"/>
+                <ComboBox x:Name="cb_manager" DisplayMemberPath="FIO" SelectedValuePath="IdЗавКаф" Width="100" Height="30"/>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Page>
