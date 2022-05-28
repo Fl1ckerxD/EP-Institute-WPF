@@ -52,6 +52,7 @@ namespace Institute.Frames.Update
                 result.Телефон = tb_phone.Text;
                 result.IdЗавКаф = (int)cb_manager.SelectedValue;
                 result.IdФакультет = (int)cb_facult.SelectedValue;
+                ConnectionDB.conDB.SaveChanges();
             }
         }
     }

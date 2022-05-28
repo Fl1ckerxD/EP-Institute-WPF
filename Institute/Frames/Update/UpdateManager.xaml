@@ -6,12 +6,12 @@
       xmlns:local="clr-namespace:Institute.Frames.Update"
       mc:Ignorable="d" 
       d:DesignHeight="369" d:DesignWidth="792"
-      Title="Редактирование зав.кафедрой">
+      Title="Редактирование зав.кафедрой" Loaded="Page_Loaded">
 
     <Grid>
         <Button x:Name="b_save" Content="Сохранить" Style="{StaticResource MainButton}" Width="100" Height="40" Margin="333,297,359,32" Click="b_save_Click"/>
 
-        <TextBox x:Name="tb_lastName" Width="150" Height="30" Margin="297,112,345,227" />
+        <TextBox x:Name="tb_lastName" Width="150" Height="30" Margin="297,112,345,227"/>
         <TextBlock Text="Фамилия:" TextAlignment="Right" Width="60" Height="20" Margin="232,122,500,227" />
 
         <TextBox x:Name="tb_name" Width="150" Height="30" Margin="297,155,345,184" />

@@ -22,11 +22,6 @@ namespace Institute
             FrameManager.frmMain.GoBack();
         }
 
-        private void Window_ContentRendered(object sender, EventArgs e)
-        {
-            
-        }
-
         private void Window_LayoutUpdated(object sender, EventArgs e)
         {
             if (FrameManager.frmMain.CanGoBack)

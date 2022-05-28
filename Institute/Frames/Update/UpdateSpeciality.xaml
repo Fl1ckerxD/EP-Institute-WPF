@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:Institute.Frames.Update"
       mc:Ignorable="d" 
       d:DesignHeight="369" d:DesignWidth="792"
-      Title="Редактирование специальности">
+      Title="Редактирование специальности" Loaded="Page_Loaded">
 
     <Grid>
         <TextBox x:Name="tb_title" Width="140" Height="30" HorizontalAlignment="Left" Margin="216,102,0,237"/>

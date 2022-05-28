@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Institute.Classes;
 
 namespace Institute.Frames.Update
 {
@@ -21,11 +22,24 @@ namespace Institute.Frames.Update
     /// </summary>
     public partial class UpdateSpeciality : Page
     {
-        private int idDepart;
-        public UpdateSpeciality(int idDepart)
+        private int idSpec;
+        public UpdateSpeciality(int idSpec)
         {
             InitializeComponent();
-            this.idDepart = idDepart;
+            this.idSpec = idSpec;
+        }
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            cb_qualifi.ItemsSource = ConnectionDB.conDB.Квалификация.ToList();
+            cb_facult.ItemsSource = ConnectionDB.conDB.Факультет.ToList();
+            cb_forma.ItemsSource = ConnectionDB.conDB.ФормаОбучения.ToList();
+
+            cb_qualifi.SelectedValue = ConnectionDB.conDB.Специальность.Find(idSpec).IdКвалиф;
+            cb_facult.SelectedValue = ConnectionDB.conDB.Специальность.Find(idSpec).IdФакультет;
+            cb_forma.SelectedValue = ConnectionDB.conDB.Специальность.Find(idSpec).IdФормаОбуч;
+            tb_title.Text = ConnectionDB.conDB.Специальность.Find(idSpec).Название;
+            tb_year.Text = MyDuration.OutputYear(ConnectionDB.conDB.Специальность.Find(idSpec).Продолжительность);
+            tb_month.Text = MyDuration.OutputMonth(ConnectionDB.conDB.Специальность.Find(idSpec).Продолжительность);
         }
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
         {
@@ -34,7 +48,16 @@ namespace Institute.Frames.Update
         }
         private void b_save_Click(object sender, RoutedEventArgs e)
         {
-
+            var result = ConnectionDB.conDB.Специальность.SingleOrDefault(u => u.IdСпец == idSpec);
+            if (result != null)
+            {
+                result.IdКвалиф = (int)cb_qualifi.SelectedValue;
+                result.IdФакультет = (int)cb_facult.SelectedValue;
+                result.IdФормаОбуч = (int)cb_forma.SelectedValue;
+                result.Название = tb_title.Text;
+                result.Продолжительность = MyDuration.ConnectDate(tb_year.Text, tb_month.Text);
+                ConnectionDB.conDB.SaveChanges();
+            }
         }
     }
 }

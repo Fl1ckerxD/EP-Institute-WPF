@@ -45,7 +45,7 @@ namespace Institute.Frames.Insert
             {
                 Название = tb_title.Text,
                 IdКвалиф = (int)cb_qualifi.SelectedValue,
-                Продолжительность = String.Format("{0} года {1} месяца", tb_year.Text, tb_month.Text), // add new method
+                Продолжительность = MyDuration.ConnectDate(tb_year.Text, tb_month.Text),
                 IdФормаОбуч = (int)cb_forma.SelectedValue,
                 IdФакультет = (int)cb_facult.SelectedValue
             };
