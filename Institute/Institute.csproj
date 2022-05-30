@@ -300,6 +300,7 @@
       <DependentUpon>InstituteDB.edmx</DependentUpon>
       <LastGenOutput>InstituteDB.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\warning %281%29.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\college.png" />

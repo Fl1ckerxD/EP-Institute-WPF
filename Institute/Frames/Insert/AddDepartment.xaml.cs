@@ -38,15 +38,22 @@ namespace Institute.Frames.Insert
         }
         private void b_addNew_Click(object sender, RoutedEventArgs e)
         {
-            Model.Кафедра kaf = new Model.Кафедра()
+            if (tb_title.Text == string.Empty || tb_phone.Text == string.Empty || cb_facult.SelectedItem == null || cb_manager.SelectedItem == null)
             {
-                Название = tb_title.Text,
-                Телефон = tb_phone.Text,
-                IdФакультет = (int)cb_facult.SelectedValue,
-                IdЗавКаф = (int)cb_manager.SelectedValue
-            };
-            ConnectionDB.conDB.Кафедра.Add(kaf);
-            ConnectionDB.conDB.SaveChanges();
+                // error something
+            }
+            else
+            {
+                Model.Кафедра kaf = new Model.Кафедра()
+                {
+                    Название = tb_title.Text,
+                    Телефон = tb_phone.Text,
+                    IdФакультет = (int)cb_facult.SelectedValue,
+                    IdЗавКаф = (int)cb_manager.SelectedValue
+                };
+                ConnectionDB.conDB.Кафедра.Add(kaf);
+                ConnectionDB.conDB.SaveChanges();
+            }
         }
     }
 }

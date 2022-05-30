@@ -3,11 +3,53 @@
     <SolidColorBrush x:Key="main" Color="#03899C"/>
     <SolidColorBrush x:Key="second" Color="#FFC700"/>
     <SolidColorBrush x:Key="accent" Color="#E40045"/>
+    <SolidColorBrush x:Key="error" Color="#FF4040"/>
 
     <Style x:Key="MainButton" TargetType="Button">
         <Setter Property="Background" Value="{StaticResource second}"/>
         <Setter Property="FontSize" Value="20"/>
         <Setter Property="Height" Value="30"/>
         <Setter Property="Width" Value="40"/>
+    </Style>
+
+    <Style x:Key="RoundCorner" TargetType="{x:Type Button}">
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Padding" Value="1"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid x:Name="grid">
+                        <Border x:Name="border" CornerRadius="3" BorderBrush="#FF7373" BorderThickness="1">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                          VerticalAlignment="Center"
+                                          TextElement.FontWeight="Bold">
+                            </ContentPresenter>
+                            <Border.Background>
+                                <SolidColorBrush Color="#FF7373"/>
+                            </Border.Background>
+                        </Border>
+
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Background" TargetName="border">
+                                <Setter.Value>
+                                    <SolidColorBrush Color="#BF3030">
+                                    </SolidColorBrush>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="BorderBrush" TargetName="border" Value="#BF3030"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Opacity" TargetName="grid" Value="0.25"/>
+                        </Trigger>
+
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
     </Style>
 </ResourceDictionary>
