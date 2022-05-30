@@ -50,7 +50,7 @@ namespace Institute.Frames.Insert
                 ЧасыПракРабот = Convert.ToInt32(tb_parc.Text),
                 ЧасыКурсового = Convert.ToInt32(tb_kurs.Text),
                 IdВидОтчет = (int)cb_otchet.SelectedValue,
-                Семестр = Convert.ToInt32(tb_semestr.Text)
+                Семестр = (int)cb_semestr.SelectedItem
             };
             ConnectionDB.conDB.УчебныйПлан.Add(plan);
             ConnectionDB.conDB.SaveChanges();

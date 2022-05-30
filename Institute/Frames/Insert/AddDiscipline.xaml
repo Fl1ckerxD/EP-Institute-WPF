@@ -9,8 +9,10 @@
       Title="Добавление дисциплины">
 
     <Grid>
-        <Button x:Name="b_addNew" Content="Добавить" Style="{StaticResource MainButton}" Width="100" Height="40" Margin="333,297,359,32" Click="b_addNew_Click" />
-        <TextBox x:Name="tb_title" Width="100" Height="30"/>
-        <TextBlock Text="Название:" Width="100" Height="20" TextAlignment="Right" Margin="241,175,451,174"/>
+        <Button x:Name="b_addNew" Content="Добавить" Style="{StaticResource MainButton}" Width="100" Height="40" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,50" Click="b_addNew_Click"/>
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock Text="Название:" Height="20" TextAlignment="Right" Margin="0,0,20,0"/>
+            <TextBox x:Name="tb_title" Width="100" Height="30"/>
+        </StackPanel>
     </Grid>
 </Page>

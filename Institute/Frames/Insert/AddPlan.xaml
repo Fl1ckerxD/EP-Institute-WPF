@@ -9,14 +9,68 @@
       Title="Добавление нового учебного плана" Loaded="Page_Loaded">
 
     <Grid>
-        <Button x:Name="b_addNew" Content="Добавить" Style="{StaticResource MainButton}" Width="100" Height="40" Margin="333,297,359,32" Click="b_addNew_Click" />
-        <ComboBox x:Name="cb_discip" DisplayMemberPath="Название" SelectedValuePath="IdДисцип" Width="100" Height="30" Margin="122,127,570,212"/>
-        <ComboBox x:Name="cb_spec" DisplayMemberPath="Название" SelectedValuePath="IdСпец" Width="100" Height="30" Margin="122,170,570,169"/>
-        <ComboBox x:Name="cb_otchet" DisplayMemberPath="Название" SelectedValuePath="IdОтчет" Width="100" Height="30" Margin="122,213,570,126"/>
-        <TextBox x:Name="tb_lek" Width="50" Height="30" Margin="371,170,371,169" PreviewTextInput="NumberValidationTextBox"/>
-        <TextBox x:Name="tb_lab" Width="50" Height="30" Margin="308,170,434,169" PreviewTextInput="NumberValidationTextBox"/>
-        <TextBox x:Name="tb_parc" Width="50" Height="30" Margin="435,128,307,211" PreviewTextInput="NumberValidationTextBox"/>
-        <TextBox x:Name="tb_kurs" Width="50" Height="30" Margin="371,128,371,211" PreviewTextInput="NumberValidationTextBox"/>
-        <TextBox x:Name="tb_semestr" Width="50" Height="30" Margin="308,128,434,211" PreviewTextInput="NumberValidationTextBox"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="9*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Button x:Name="b_addNew" Grid.Column="1" Grid.Row="2" Content="Добавить" Style="{StaticResource MainButton}" Width="100" Height="40" Click="b_addNew_Click" />
+
+        <StackPanel Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <TextBlock Text="Дисциплина:" VerticalAlignment="Center" Margin="0,0,20,0"/>
+                <ComboBox x:Name="cb_discip" DisplayMemberPath="Название" SelectedValuePath="IdДисцип" Width="100" Height="30"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,30,0,0">
+                <TextBlock Text="Специальность:" VerticalAlignment="Center" Margin="0,0,20,0"/>
+                <ComboBox x:Name="cb_spec" DisplayMemberPath="Название" SelectedValuePath="IdСпец" Width="100" Height="30"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,30,0,0">
+                <TextBlock Text="Вид отчетности:" VerticalAlignment="Center" Margin="0,0,20,0"/>
+                <ComboBox x:Name="cb_otchet" DisplayMemberPath="Название" SelectedValuePath="IdОтчет" Width="100" Height="30"/>
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Grid.Column="1" HorizontalAlignment="Right">
+            <StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <TextBlock Text="Часы лекций:" VerticalAlignment="Center" Margin="0,0,20,0"/>
+                    <TextBox x:Name="tb_lek" Width="50" Height="30" PreviewTextInput="NumberValidationTextBox"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,30,0,0">
+                    <TextBlock Text="Часы лаб. занятий:" VerticalAlignment="Center" Margin="0,0,20,0"/>
+                    <TextBox x:Name="tb_lab" Width="50" Height="30" PreviewTextInput="NumberValidationTextBox"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,30,0,0">
+                    <TextBlock Text="Часы прак. занятий:" VerticalAlignment="Center" Margin="0,0,20,0"/>
+                    <TextBox x:Name="tb_parc" Width="50" Height="30" PreviewTextInput="NumberValidationTextBox"/>
+                </StackPanel>
+            </StackPanel>
+
+            <StackPanel Margin="30,0,0,0">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <TextBlock Text="Часы КП:" VerticalAlignment="Center" Margin="0,0,20,0"/>
+                    <TextBox x:Name="tb_kurs" Width="50" Height="30" PreviewTextInput="NumberValidationTextBox"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,30,0,0">
+                    <TextBlock Text="Семестр:" VerticalAlignment="Center" Margin="0,0,20,0"/>
+                    <ComboBox x:Name="cb_semestr" Width="50" Height="30">
+                        <ComboBoxItem Content="1"/>
+                        <ComboBoxItem Content="2"/>
+                    </ComboBox>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Page>

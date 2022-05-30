@@ -9,18 +9,46 @@
       Title="Добавление зав.кафедрой" Loaded="Page_Loaded">
 
     <Grid>
-        <Button x:Name="b_addNew" Content="Добавить" Style="{StaticResource MainButton}" Width="100" Height="40" Margin="333,297,359,32" Click="b_addNew_Click"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="9*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
 
-        <TextBox x:Name="tb_lastName" Width="150" Height="30" Margin="297,112,345,227" />
-        <TextBlock Text="Фамилия:" TextAlignment="Right" Width="60" Height="20" Margin="232,122,500,227" />
+        <Button x:Name="b_addNew" Grid.Column="1" Grid.Row="2" Content="Добавить" Style="{StaticResource MainButton}" Width="100" Height="40" Click="b_addNew_Click"/>
 
-        <TextBox x:Name="tb_name" Width="150" Height="30" Margin="297,155,345,184" />
-        <TextBlock Text="Имя:" TextAlignment="Right" Width="60" Height="20" Margin="232,160,500,189" />
+        <StackPanel Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <TextBlock Text="Фамилия:" TextAlignment="Right" Height="20" Margin="0,0,20,0"/>
+                <TextBox x:Name="tb_lastName" Width="150" Height="30"/>
+            </StackPanel>
 
-        <TextBox x:Name="tb_patronymic" Width="150" Height="30" Margin="297,196,345,143" />
-        <TextBlock Text="Отчество:" TextAlignment="Right" Width="60" Height="20" Margin="232,201,500,148" />
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,30,0,0">
+                <TextBlock Text="Имя:" TextAlignment="Right" Height="20" Margin="0,0,20,0"/>
+                <TextBox x:Name="tb_name" Width="150" Height="30"/>
+            </StackPanel>
 
-        <ComboBox x:Name="cb_rank" DisplayMemberPath="Название" SelectedValuePath="IdЗвание" Width="80" Height="30" Margin="470,155,242,184"/>
-        <ComboBox x:Name="cb_stepen" DisplayMemberPath="Название" SelectedValuePath="IdСтепень" Width="80" Height="30" Margin="470,112,242,227" />
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,30,0,0" >
+                <TextBlock Text="Отчество:" TextAlignment="Right" Height="20" Margin="0,0,20,0"/>
+                <TextBox x:Name="tb_patronymic" Width="150" Height="30"/>
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <TextBlock Text="Звание:" TextAlignment="Right" Height="20" Margin="0,0,20,0"/>
+                <ComboBox x:Name="cb_rank" DisplayMemberPath="Название" SelectedValuePath="IdЗвание" Width="80" Height="30"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,30,0,0" >
+                <TextBlock Text="Степень:" TextAlignment="Right" Height="20" Margin="0,0,20,0"/>
+                <ComboBox x:Name="cb_stepen" DisplayMemberPath="Название" SelectedValuePath="IdСтепень" Width="80" Height="30"/>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Page>
