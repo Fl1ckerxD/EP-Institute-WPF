@@ -9,18 +9,61 @@
       Title="Редактирование зав.кафедрой" Loaded="Page_Loaded">
 
     <Grid>
-        <Button x:Name="b_save" Content="Сохранить" Style="{StaticResource MainButton}" Width="100" Height="40" Margin="333,297,359,32" Click="b_save_Click"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="9*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
 
-        <TextBox x:Name="tb_lastName" Width="150" Height="30" Margin="297,112,345,227"/>
-        <TextBlock Text="Фамилия:" TextAlignment="Right" Width="60" Height="20" Margin="232,122,500,227" />
+        <Border x:Name="notific" Grid.Row="0" Grid.Column="1" Background="{StaticResource error}" HorizontalAlignment="Right" CornerRadius="10" Visibility="Hidden"
+                Height="60" Width="{Binding ActualWidth, ElementName=sackp, UpdateSourceTrigger=PropertyChanged}">
+            <StackPanel x:Name="sackp" Orientation="Horizontal" HorizontalAlignment="Left">
+                <Image Source="/Institute;component/Resources/warning (1).png" Width="26" VerticalAlignment="Center" Margin="20,0,10,0"/>
+                <StackPanel VerticalAlignment="Center">
+                    <TextBlock x:Name="error" Text="Ошибка!" Foreground="White" Margin="0,0,0,10"/>
+                    <TextBlock x:Name="description" Text="Не все данные были введены" Foreground="White"/>
+                </StackPanel>
+                <Button x:Name="b_close" Style="{DynamicResource RoundCorner}" Foreground="#BF3030"
+                    Height="20" Width="20" FontSize="12" VerticalAlignment="Top"
+                    HorizontalAlignment="Right" Margin="10,10,10,0" Content="❌" Click="b_close_Click">
+                </Button>
+            </StackPanel>
+        </Border>
 
-        <TextBox x:Name="tb_name" Width="150" Height="30" Margin="297,155,345,184" />
-        <TextBlock Text="Имя:" TextAlignment="Right" Width="60" Height="20" Margin="232,160,500,189" />
+        <StackPanel Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <TextBlock Text="Фамилия:" TextAlignment="Right" Height="20" Margin="0,0,20,0"/>
+                <TextBox x:Name="tb_lastName" Width="150" Height="30"/>
+            </StackPanel>
 
-        <TextBox x:Name="tb_patronymic" Width="150" Height="30" Margin="297,196,345,143" />
-        <TextBlock Text="Отчество:" TextAlignment="Right" Width="60" Height="20" Margin="232,201,500,148" />
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,30,0,0">
+                <TextBlock Text="Имя:" TextAlignment="Right" Height="20" Margin="0,0,20,0"/>
+                <TextBox x:Name="tb_name" Width="150" Height="30"/>
+            </StackPanel>
 
-        <ComboBox x:Name="cb_rank" DisplayMemberPath="Название" SelectedValuePath="IdЗвание" Width="80" Height="30" Margin="470,155,242,184"/>
-        <ComboBox x:Name="cb_stepen" DisplayMemberPath="Название" SelectedValuePath="IdСтепень" Width="80" Height="30" Margin="470,112,242,227" />
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,30,0,0" >
+                <TextBlock Text="Отчество:" TextAlignment="Right" Height="20" Margin="0,0,20,0"/>
+                <TextBox x:Name="tb_patronymic" Width="150" Height="30"/>
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <TextBlock Text="Звание:" TextAlignment="Right" Height="20" Margin="0,0,20,0"/>
+                <ComboBox x:Name="cb_rank" DisplayMemberPath="Название" SelectedValuePath="IdЗвание" Width="80" Height="30"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,30,0,0" >
+                <TextBlock Text="Степень:" TextAlignment="Right" Height="20" Margin="0,0,20,0"/>
+                <ComboBox x:Name="cb_stepen" DisplayMemberPath="Название" SelectedValuePath="IdСтепень" Width="80" Height="30"/>
+            </StackPanel>
+        </StackPanel>
+
+        <Button x:Name="b_save" Grid.Row="2" Grid.Column="1" Content="Сохранить" Style="{StaticResource MainButton}" Width="100" Height="40" Click="b_save_Click"/>
     </Grid>
 </Page>
