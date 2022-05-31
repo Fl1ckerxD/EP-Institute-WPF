@@ -38,17 +38,17 @@
         <StackPanel Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                 <TextBlock Text="Дисциплина:" VerticalAlignment="Center" Margin="0,0,20,0"/>
-                <ComboBox x:Name="cb_discip" DisplayMemberPath="Название" SelectedValuePath="IdДисцип" Width="100" Height="30"/>
+                <ComboBox x:Name="cb_discip" DisplayMemberPath="Название" SelectedValuePath="IdДисцип" Width="150"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,30,0,0">
                 <TextBlock Text="Специальность:" VerticalAlignment="Center" Margin="0,0,20,0"/>
-                <ComboBox x:Name="cb_spec" DisplayMemberPath="Название" SelectedValuePath="IdСпец" Width="100" Height="30"/>
+                <ComboBox x:Name="cb_spec" DisplayMemberPath="Название" SelectedValuePath="IdСпец" Width="150"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,30,0,0">
                 <TextBlock Text="Вид отчетности:" VerticalAlignment="Center" Margin="0,0,20,0"/>
-                <ComboBox x:Name="cb_otchet" DisplayMemberPath="Название" SelectedValuePath="IdОтчет" Width="100" Height="30"/>
+                <ComboBox x:Name="cb_otchet" DisplayMemberPath="Название" SelectedValuePath="IdОтчет" Width="140"/>
             </StackPanel>
         </StackPanel>
 
@@ -56,29 +56,29 @@
             <StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                     <TextBlock Text="Часы лекций:" VerticalAlignment="Center" Margin="0,0,20,0"/>
-                    <TextBox x:Name="tb_lek" Width="50" Height="30" PreviewTextInput="NumberValidationTextBox"/>
+                    <TextBox x:Name="tb_lek" Width="50" PreviewTextInput="NumberValidationTextBox"/>
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,30,0,0">
                     <TextBlock Text="Часы лаб. занятий:" VerticalAlignment="Center" Margin="0,0,20,0"/>
-                    <TextBox x:Name="tb_lab" Width="50" Height="30" PreviewTextInput="NumberValidationTextBox"/>
+                    <TextBox x:Name="tb_lab" Width="50" PreviewTextInput="NumberValidationTextBox"/>
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,30,0,0">
                     <TextBlock Text="Часы прак. занятий:" VerticalAlignment="Center" Margin="0,0,20,0"/>
-                    <TextBox x:Name="tb_parc" Width="50" Height="30" PreviewTextInput="NumberValidationTextBox"/>
+                    <TextBox x:Name="tb_parc" Width="50" PreviewTextInput="NumberValidationTextBox"/>
                 </StackPanel>
             </StackPanel>
 
             <StackPanel Margin="30,0,0,0">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                     <TextBlock Text="Часы КП:" VerticalAlignment="Center" Margin="0,0,20,0"/>
-                    <TextBox x:Name="tb_kurs" Width="50" Height="30" PreviewTextInput="NumberValidationTextBox"/>
+                    <TextBox x:Name="tb_kurs" Width="50" PreviewTextInput="NumberValidationTextBox"/>
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,30,0,0">
                     <TextBlock Text="Семестр:" VerticalAlignment="Center" Margin="0,0,20,0"/>
-                    <ComboBox x:Name="cb_semestr" Width="50" Height="30">
+                    <ComboBox x:Name="cb_semestr" Width="40">
                         <ComboBoxItem Content="1"/>
                         <ComboBoxItem Content="2"/>
                     </ComboBox>

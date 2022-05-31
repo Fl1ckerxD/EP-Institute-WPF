@@ -38,24 +38,25 @@
         <StackPanel Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                 <TextBlock Text="Номер телефона:" VerticalAlignment="Center" Margin="0,0,20,0"/>
-                <TextBox x:Name="tb_phone" Width="160" Height="35" PreviewTextInput="NumberValidationTextBox" MaxLength="12"/>
+                <TextBox x:Name="tb_phone" Width="150" PreviewTextInput="NumberValidationTextBox" MaxLength="12"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,30,0,0" >
                 <TextBlock Text="Название:" VerticalAlignment="Center" Margin="0,0,20,0"/>
-                <TextBox x:Name="tb_title" Width="160" Height="35"/>
+                <TextBox x:Name="tb_title" Width="220"/>
             </StackPanel>
         </StackPanel>
 
         <StackPanel Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right">
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                <TextBlock Text="Факультет:" VerticalAlignment="Center" Margin="0,0,20,0"/>
-                <ComboBox x:Name="cb_facult" DisplayMemberPath="Название" SelectedValuePath="IdФакульт" Width="100" Height="30"/>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >
+                <TextBlock Text="Зав.Кафедрой:" VerticalAlignment="Center" Margin="0,0,20,0"/>
+                <ComboBox x:Name="cb_manager" DisplayMemberPath="FIO" SelectedValuePath="IdЗавКаф" Width="220" Height="30"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,30,0,0">
-                <TextBlock Text="Зав.Кафедрой:" VerticalAlignment="Center" Margin="0,0,20,0"/>
-                <ComboBox x:Name="cb_manager" DisplayMemberPath="FIO" SelectedValuePath="IdЗавКаф" Width="100" Height="30"/>
+                <TextBlock Text="Факультет:" VerticalAlignment="Center" Margin="0,0,20,0"/>
+                <ComboBox x:Name="cb_facult" DisplayMemberPath="Название" SelectedValuePath="IdФакульт" Width="130" Height="30"/>
             </StackPanel>
         </StackPanel>
         

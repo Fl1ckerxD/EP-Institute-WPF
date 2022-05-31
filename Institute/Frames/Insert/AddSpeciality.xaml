@@ -38,22 +38,22 @@
         <StackPanel Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                 <TextBlock Text="Название:" Height="30" TextAlignment="Right" Margin="0,0,20,0"/>
-                <TextBox x:Name="tb_title" Width="140" Height="30"/>
+                <TextBox x:Name="tb_title" Width="240"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,30,0,0">
                 <TextBlock Text="Квалификация:" Height="25" TextAlignment="Right" Margin="0,0,20,0"/>
-                <ComboBox x:Name="cb_qualifi" DisplayMemberPath="Название" SelectedValuePath="IdКвалиф" Width="100" Height="30" />
+                <ComboBox x:Name="cb_qualifi" DisplayMemberPath="Название" SelectedValuePath="IdКвалиф" Width="120"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,30,0,0">
                 <TextBlock Text="Форма обучения:" Height="25" TextAlignment="Right" Margin="0,0,20,0"/>
-                <ComboBox x:Name="cb_forma" DisplayMemberPath="Название" SelectedValuePath="IdФорма" Width="100" Height="30" />
+                <ComboBox x:Name="cb_forma" DisplayMemberPath="Название" SelectedValuePath="IdФорма" Width="90"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,30,0,0">
                 <TextBlock Text="Факультет:" Height="25" TextAlignment="Right" Margin="0,0,20,0"/>
-                <ComboBox x:Name="cb_facult" DisplayMemberPath="Название" SelectedValuePath="IdФакульт" Width="100" Height="30" />
+                <ComboBox x:Name="cb_facult" DisplayMemberPath="Название" SelectedValuePath="IdФакульт" Width="130"/>
             </StackPanel>
         </StackPanel>
 
@@ -62,12 +62,12 @@
                 <TextBlock Text="Продолжительность:" Height="25" TextAlignment="Right" Margin="0,0,20,0"/>
                 
                 <StackPanel Margin="0,0,20,0">
-                    <TextBox x:Name="tb_year" Width="60" Height="35" PreviewTextInput="NumberValidationTextBox"/>
+                    <TextBox x:Name="tb_year" Width="60" PreviewTextInput="NumberValidationTextBox"/>
                     <TextBlock Text="года" Height="25" TextAlignment="Center"/>
                 </StackPanel>
 
                 <StackPanel>
-                    <TextBox x:Name="tb_month" Width="60" Height="35"  PreviewTextInput="NumberValidationTextBox"/>
+                    <TextBox x:Name="tb_month" Width="60" PreviewTextInput="NumberValidationTextBox"/>
                     <TextBlock Text="месяцы" Height="25" TextAlignment="Center"/>
                 </StackPanel>
             </StackPanel>

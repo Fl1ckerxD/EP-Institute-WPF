@@ -38,29 +38,29 @@
         <StackPanel Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                 <TextBlock Text="Фамилия:" TextAlignment="Right" Height="20" Margin="0,0,20,0"/>
-                <TextBox x:Name="tb_lastName" Width="150" Height="30"/>
+                <TextBox x:Name="tb_lastName" Width="160"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,30,0,0">
                 <TextBlock Text="Имя:" TextAlignment="Right" Height="20" Margin="0,0,20,0"/>
-                <TextBox x:Name="tb_name" Width="150" Height="30"/>
+                <TextBox x:Name="tb_name" Width="160"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,30,0,0" >
                 <TextBlock Text="Отчество:" TextAlignment="Right" Height="20" Margin="0,0,20,0"/>
-                <TextBox x:Name="tb_patronymic" Width="150" Height="30"/>
+                <TextBox x:Name="tb_patronymic" Width="160"/>
             </StackPanel>
         </StackPanel>
 
         <StackPanel Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                 <TextBlock Text="Звание:" TextAlignment="Right" Height="20" Margin="0,0,20,0"/>
-                <ComboBox x:Name="cb_rank" DisplayMemberPath="Название" SelectedValuePath="IdЗвание" Width="80" Height="30"/>
+                <ComboBox x:Name="cb_rank" DisplayMemberPath="Название" SelectedValuePath="IdЗвание" Width="165"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,30,0,0" >
                 <TextBlock Text="Степень:" TextAlignment="Right" Height="20" Margin="0,0,20,0"/>
-                <ComboBox x:Name="cb_stepen" DisplayMemberPath="Название" SelectedValuePath="IdСтепень" Width="80" Height="30"/>
+                <ComboBox x:Name="cb_stepen" DisplayMemberPath="Название" SelectedValuePath="IdСтепень" Width="120"/>
             </StackPanel>
         </StackPanel>
         
