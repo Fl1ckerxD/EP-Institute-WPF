@@ -40,20 +40,34 @@ namespace Institute.Frames.Insert
         {
             if (tb_title.Text == string.Empty || tb_phone.Text == string.Empty || cb_facult.SelectedItem == null || cb_manager.SelectedItem == null)
             {
-                // error something
+                description.Text = "Не все данные были введены";
+                notific.Visibility = Visibility.Visible;
             }
             else
             {
-                Model.Кафедра kaf = new Model.Кафедра()
+                try
                 {
-                    Название = tb_title.Text,
-                    Телефон = tb_phone.Text,
-                    IdФакультет = (int)cb_facult.SelectedValue,
-                    IdЗавКаф = (int)cb_manager.SelectedValue
-                };
-                ConnectionDB.conDB.Кафедра.Add(kaf);
-                ConnectionDB.conDB.SaveChanges();
+                    Model.Кафедра kaf = new Model.Кафедра()
+                    {
+                        Название = tb_title.Text,
+                        Телефон = tb_phone.Text,
+                        IdФакультет = (int)cb_facult.SelectedValue,
+                        IdЗавКаф = (int)cb_manager.SelectedValue
+                    };
+                    ConnectionDB.conDB.Кафедра.Add(kaf);
+                    ConnectionDB.conDB.SaveChanges();
+                }
+                catch
+                {
+                    description.Text = "Ошибка сохранения данных";
+                    notific.Visibility = Visibility.Visible;
+                }
             }
+        }
+
+        private void b_close_Click(object sender, RoutedEventArgs e)
+        {
+            notific.Visibility = Visibility.Hidden;
         }
     }
 }

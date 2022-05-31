@@ -41,16 +41,37 @@ namespace Institute.Frames.Insert
 
         private void b_addNew_Click(object sender, RoutedEventArgs e)
         {
-            Model.Специальность spec = new Model.Специальность()
+            if (tb_title.Text == string.Empty || tb_month.Text == string.Empty || tb_year.Text == string.Empty || cb_facult.SelectedItem == null
+                || cb_forma.SelectedItem == null || cb_qualifi.SelectedItem == null)
             {
-                Название = tb_title.Text,
-                IdКвалиф = (int)cb_qualifi.SelectedValue,
-                Продолжительность = MyDuration.ConnectDate(tb_year.Text, tb_month.Text),
-                IdФормаОбуч = (int)cb_forma.SelectedValue,
-                IdФакультет = (int)cb_facult.SelectedValue
-            };
-            ConnectionDB.conDB.Специальность.Add(spec);
-            ConnectionDB.conDB.SaveChanges();
+                description.Text = "Не все данные были введены";
+                notific.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                try
+                {
+                    Model.Специальность spec = new Model.Специальность()
+                    {
+                        Название = tb_title.Text,
+                        IdКвалиф = (int)cb_qualifi.SelectedValue,
+                        Продолжительность = MyDuration.ConnectDate(tb_year.Text, tb_month.Text),
+                        IdФормаОбуч = (int)cb_forma.SelectedValue,
+                        IdФакультет = (int)cb_facult.SelectedValue
+                    };
+                    ConnectionDB.conDB.Специальность.Add(spec);
+                    ConnectionDB.conDB.SaveChanges();
+                }
+                catch
+                {
+                    description.Text = "Ошибка сохранения данных";
+                    notific.Visibility = Visibility.Visible;
+                }
+            }
+        }
+        private void b_close_Click(object sender, RoutedEventArgs e)
+        {
+            notific.Visibility = Visibility.Hidden;
         }
     }
 }

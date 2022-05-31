@@ -32,17 +32,37 @@ namespace Institute.Frames.Insert
         }
         private void b_addNew_Click(object sender, RoutedEventArgs e)
         {
-            Model.ЗавКафедрой zav = new Model.ЗавКафедрой()
+            if (tb_lastName.Text == string.Empty || tb_name.Text == string.Empty || tb_patronymic.Text == string.Empty || cb_rank.SelectedItem == null || cb_stepen.SelectedItem == null)
             {
-                Фамилия = tb_lastName.Text,
-                Имя = tb_name.Text,
-                Отчество = tb_patronymic.Text,
-                IdСтепень = (int)cb_stepen.SelectedValue,
-                IdЗвание = (int)cb_rank.SelectedValue
-            };
+                description.Text = "Не все данные были введены";
+                notific.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                try
+                {
+                    Model.ЗавКафедрой zav = new Model.ЗавКафедрой()
+                    {
+                        Фамилия = tb_lastName.Text,
+                        Имя = tb_name.Text,
+                        Отчество = tb_patronymic.Text,
+                        IdСтепень = (int)cb_stepen.SelectedValue,
+                        IdЗвание = (int)cb_rank.SelectedValue
+                    };
 
-            ConnectionDB.conDB.ЗавКафедрой.Add(zav);
-            ConnectionDB.conDB.SaveChanges();
+                    ConnectionDB.conDB.ЗавКафедрой.Add(zav);
+                    ConnectionDB.conDB.SaveChanges();
+                }
+                catch
+                {
+                    description.Text = "Ошибка сохранения данных";
+                    notific.Visibility = Visibility.Visible;
+                }
+            }
+        }
+        private void b_close_Click(object sender, RoutedEventArgs e)
+        {
+            notific.Visibility = Visibility.Hidden;
         }
     }
 }

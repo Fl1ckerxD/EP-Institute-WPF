@@ -20,6 +20,21 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
+        <Border x:Name="notific" Grid.Row="0" Grid.Column="1" Background="{StaticResource error}" HorizontalAlignment="Right" CornerRadius="10" Visibility="Hidden"
+                Height="60" Width="{Binding ActualWidth, ElementName=sackp, UpdateSourceTrigger=PropertyChanged}">
+            <StackPanel x:Name="sackp" Orientation="Horizontal" HorizontalAlignment="Left">
+                <Image Source="/Institute;component/Resources/warning (1).png" Width="26" VerticalAlignment="Center" Margin="20,0,10,0"/>
+                <StackPanel VerticalAlignment="Center">
+                    <TextBlock x:Name="error" Text="Ошибка!" Foreground="White" Margin="0,0,0,10"/>
+                    <TextBlock x:Name="description" Text="Не все данные были введены" Foreground="White"/>
+                </StackPanel>
+                <Button x:Name="b_close" Style="{DynamicResource RoundCorner}" Foreground="#BF3030"
+                    Height="20" Width="20" FontSize="12" VerticalAlignment="Top"
+                    HorizontalAlignment="Right" Margin="10,10,10,0" Content="❌" Click="b_close_Click">
+                </Button>
+            </StackPanel>
+        </Border>
+
         <StackPanel Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                 <TextBlock Text="Название:" Height="30" TextAlignment="Right" Margin="0,0,20,0"/>

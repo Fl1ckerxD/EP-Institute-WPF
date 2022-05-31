@@ -41,19 +41,40 @@ namespace Institute.Frames.Insert
 
         private void b_addNew_Click(object sender, RoutedEventArgs e)
         {
-            Model.УчебныйПлан plan = new Model.УчебныйПлан()
+            if (tb_kurs.Text == string.Empty || tb_lab.Text == string.Empty || tb_lek.Text == string.Empty || tb_parc.Text == string.Empty
+                || cb_discip.SelectedItem == null || cb_otchet.SelectedItem == null || cb_semestr.SelectedItem == null || cb_spec.SelectedItem == null)
             {
-                IdДисцип = (int)cb_discip.SelectedValue,
-                IdСпец = (int)cb_spec.SelectedValue,
-                ЧасыЛекции = Convert.ToInt32(tb_lek.Text),
-                ЧасыЛабРабот = Convert.ToInt32(tb_lab.Text),
-                ЧасыПракРабот = Convert.ToInt32(tb_parc.Text),
-                ЧасыКурсового = Convert.ToInt32(tb_kurs.Text),
-                IdВидОтчет = (int)cb_otchet.SelectedValue,
-                Семестр = (int)cb_semestr.SelectedItem
-            };
-            ConnectionDB.conDB.УчебныйПлан.Add(plan);
-            ConnectionDB.conDB.SaveChanges();
+                description.Text = "Не все данные были введены";
+                notific.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                try
+                {
+                    Model.УчебныйПлан plan = new Model.УчебныйПлан()
+                    {
+                        IdДисцип = (int)cb_discip.SelectedValue,
+                        IdСпец = (int)cb_spec.SelectedValue,
+                        ЧасыЛекции = Convert.ToInt32(tb_lek.Text),
+                        ЧасыЛабРабот = Convert.ToInt32(tb_lab.Text),
+                        ЧасыПракРабот = Convert.ToInt32(tb_parc.Text),
+                        ЧасыКурсового = Convert.ToInt32(tb_kurs.Text),
+                        IdВидОтчет = (int)cb_otchet.SelectedValue,
+                        Семестр = (int)cb_semestr.SelectedItem
+                    };
+                    ConnectionDB.conDB.УчебныйПлан.Add(plan);
+                    ConnectionDB.conDB.SaveChanges();
+                }
+                catch
+                {
+                    description.Text = "Ошибка сохранения данных";
+                    notific.Visibility = Visibility.Visible;
+                }
+            }
+        }
+        private void b_close_Click(object sender, RoutedEventArgs e)
+        {
+            notific.Visibility = Visibility.Hidden;
         }
     }
 }

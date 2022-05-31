@@ -67,6 +67,7 @@
     </ApplicationDefinition>
     <Compile Include="Classes\ConnectionDB.cs" />
     <Compile Include="Classes\MyDuration.cs" />
+    <Compile Include="Classes\Notification.cs" />
     <Compile Include="Frames\Insert\AddDepartment.xaml.cs">
       <DependentUpon>AddDepartment.xaml</DependentUpon>
     </Compile>
