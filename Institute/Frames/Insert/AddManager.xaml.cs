@@ -32,7 +32,7 @@ namespace Institute.Frames.Insert
         }
         private void b_addNew_Click(object sender, RoutedEventArgs e)
         {
-            if (tb_lastName.Text == string.Empty || tb_name.Text == string.Empty || tb_patronymic.Text == string.Empty || cb_rank.SelectedItem == null || cb_stepen.SelectedItem == null)
+            if (tb_lastName.Text == string.Empty || tb_name.Text == string.Empty || cb_rank.SelectedItem == null || cb_stepen.SelectedItem == null)
             {
                 description.Text = "Не все данные были введены";
                 notific.Visibility = Visibility.Visible;

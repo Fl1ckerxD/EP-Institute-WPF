@@ -41,7 +41,7 @@ namespace Institute.Frames.Update
             tb_lab.Text = ConnectionDB.conDB.УчебныйПлан.Find(idPlan).ЧасыЛабРабот.ToString();
             tb_lek.Text = ConnectionDB.conDB.УчебныйПлан.Find(idPlan).ЧасыЛекции.ToString();
             tb_parc.Text = ConnectionDB.conDB.УчебныйПлан.Find(idPlan).ЧасыПракРабот.ToString();
-            tb_semestr.Text = ConnectionDB.conDB.УчебныйПлан.Find(idPlan).Семестр.ToString();
+            cb_semestr.SelectedItem = ConnectionDB.conDB.УчебныйПлан.Find(idPlan).Семестр.ToString();
         }
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
         {
@@ -50,19 +50,40 @@ namespace Institute.Frames.Update
         }
         private void b_save_Click(object sender, RoutedEventArgs e)
         {
-            var result = ConnectionDB.conDB.УчебныйПлан.SingleOrDefault(u => u.IdПлан == idPlan);
-            if(result != null)
+            if (tb_kurs.Text == string.Empty || tb_lab.Text == string.Empty || tb_lek.Text == string.Empty || tb_parc.Text == string.Empty
+                || cb_discip.SelectedItem == null || cb_otchet.SelectedItem == null || cb_semestr.SelectedItem == null || cb_spec.SelectedItem == null)
             {
-                result.IdДисцип = (int)cb_discip.SelectedValue;
-                result.IdСпец = (int)cb_spec.SelectedValue;
-                result.IdВидОтчет = (int)cb_otchet.SelectedValue;
-                result.ЧасыКурсового = Convert.ToInt32(tb_kurs.Text);
-                result.ЧасыЛабРабот = Convert.ToInt32(tb_lab.Text);
-                result.ЧасыЛекции = Convert.ToInt32(tb_lek.Text);
-                result.ЧасыПракРабот = Convert.ToInt32(tb_parc.Text);
-                result.Семестр = Convert.ToInt32(tb_semestr.Text);
-                ConnectionDB.conDB.SaveChanges();
+                description.Text = "Не все данные были введены";
+                notific.Visibility = Visibility.Visible;
             }
+            else
+            {
+                try
+                {
+                    var result = ConnectionDB.conDB.УчебныйПлан.SingleOrDefault(u => u.IdПлан == idPlan);
+                    if (result != null)
+                    {
+                        result.IdДисцип = (int)cb_discip.SelectedValue;
+                        result.IdСпец = (int)cb_spec.SelectedValue;
+                        result.IdВидОтчет = (int)cb_otchet.SelectedValue;
+                        result.ЧасыКурсового = Convert.ToInt32(tb_kurs.Text);
+                        result.ЧасыЛабРабот = Convert.ToInt32(tb_lab.Text);
+                        result.ЧасыЛекции = Convert.ToInt32(tb_lek.Text);
+                        result.ЧасыПракРабот = Convert.ToInt32(tb_parc.Text);
+                        result.Семестр = Convert.ToInt32(cb_semestr.Text);
+                        ConnectionDB.conDB.SaveChanges();
+                    }
+                }
+                catch
+                {
+                    description.Text = "Ошибка сохранения данных";
+                    notific.Visibility = Visibility.Visible;
+                }
+            }
+        }
+        private void b_close_Click(object sender, RoutedEventArgs e)
+        {
+            notific.Visibility = Visibility.Hidden;
         }
     }
 }

@@ -48,16 +48,37 @@ namespace Institute.Frames.Update
         }
         private void b_save_Click(object sender, RoutedEventArgs e)
         {
-            var result = ConnectionDB.conDB.Специальность.SingleOrDefault(u => u.IdСпец == idSpec);
-            if (result != null)
+            if (tb_title.Text == string.Empty || tb_year.Text == string.Empty || cb_facult.SelectedItem == null
+                || cb_forma.SelectedItem == null || cb_qualifi.SelectedItem == null)
             {
-                result.IdКвалиф = (int)cb_qualifi.SelectedValue;
-                result.IdФакультет = (int)cb_facult.SelectedValue;
-                result.IdФормаОбуч = (int)cb_forma.SelectedValue;
-                result.Название = tb_title.Text;
-                result.Продолжительность = MyDuration.ConnectDate(tb_year.Text, tb_month.Text);
-                ConnectionDB.conDB.SaveChanges();
+                description.Text = "Не все данные были введены";
+                notific.Visibility = Visibility.Visible;
             }
+            else
+            {
+                try
+                {
+                    var result = ConnectionDB.conDB.Специальность.SingleOrDefault(u => u.IdСпец == idSpec);
+                    if (result != null)
+                    {
+                        result.IdКвалиф = (int)cb_qualifi.SelectedValue;
+                        result.IdФакультет = (int)cb_facult.SelectedValue;
+                        result.IdФормаОбуч = (int)cb_forma.SelectedValue;
+                        result.Название = tb_title.Text;
+                        result.Продолжительность = MyDuration.ConnectDate(tb_year.Text, tb_month.Text);
+                        ConnectionDB.conDB.SaveChanges();
+                    }
+                }
+                catch
+                {
+                    description.Text = "Ошибка сохранения данных";
+                    notific.Visibility = Visibility.Visible;
+                }
+            }
+        }
+        private void b_close_Click(object sender, RoutedEventArgs e)
+        {
+            notific.Visibility = Visibility.Hidden;
         }
     }
 }

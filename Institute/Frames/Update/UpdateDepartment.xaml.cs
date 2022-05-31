@@ -45,15 +45,35 @@ namespace Institute.Frames.Update
         }
         private void b_save_Click(object sender, RoutedEventArgs e)
         {
-            var result = ConnectionDB.conDB.Кафедра.SingleOrDefault(u => u.IdКафедра == idDepart);
-            if(result != null)
+            if (tb_title.Text == string.Empty || tb_phone.Text == string.Empty || cb_facult.SelectedItem == null || cb_manager.SelectedItem == null)
             {
-                result.Название = tb_title.Text;
-                result.Телефон = tb_phone.Text;
-                result.IdЗавКаф = (int)cb_manager.SelectedValue;
-                result.IdФакультет = (int)cb_facult.SelectedValue;
-                ConnectionDB.conDB.SaveChanges();
+                description.Text = "Не все данные были введены";
+                notific.Visibility = Visibility.Visible;
             }
+            else
+            {
+                try
+                {
+                    var result = ConnectionDB.conDB.Кафедра.SingleOrDefault(u => u.IdКафедра == idDepart);
+                    if (result != null)
+                    {
+                        result.Название = tb_title.Text;
+                        result.Телефон = tb_phone.Text;
+                        result.IdЗавКаф = (int)cb_manager.SelectedValue;
+                        result.IdФакультет = (int)cb_facult.SelectedValue;
+                        ConnectionDB.conDB.SaveChanges();
+                    }
+                }
+                catch
+                {
+                    description.Text = "Ошибка сохранения данных";
+                    notific.Visibility = Visibility.Visible;
+                }
+            }
+        }
+        private void b_close_Click(object sender, RoutedEventArgs e)
+        {
+            notific.Visibility = Visibility.Hidden;
         }
     }
 }
