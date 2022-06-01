@@ -20,6 +20,5 @@ namespace Institute.Classes
 {
     public class Notification
     {
-
     }
 }

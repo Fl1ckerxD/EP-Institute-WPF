@@ -35,35 +35,39 @@
             </StackPanel>
         </Border>
 
-        <StackPanel Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left">
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <DockPanel VerticalAlignment="Top">
                 <TextBlock Text="Фамилия:" TextAlignment="Right" Height="20" Margin="0,0,20,0"/>
-                <TextBox x:Name="tb_lastName" Width="160"/>
-            </StackPanel>
+                <TextBox x:Name="tb_lastName"/>
+            </DockPanel>
 
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,30,0,0">
+            <DockPanel VerticalAlignment="Center">
                 <TextBlock Text="Имя:" TextAlignment="Right" Height="20" Margin="0,0,20,0"/>
-                <TextBox x:Name="tb_name" Width="160"/>
-            </StackPanel>
+                <TextBox x:Name="tb_name"/>
+            </DockPanel>
 
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,30,0,0" >
+            <DockPanel VerticalAlignment="Bottom">
                 <TextBlock Text="Отчество:" TextAlignment="Right" Height="20" Margin="0,0,20,0"/>
-                <TextBox x:Name="tb_patronymic" Width="160"/>
-            </StackPanel>
-        </StackPanel>
+                <TextBox x:Name="tb_patronymic" Width="auto"/>
+            </DockPanel>
 
-        <StackPanel Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right">
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                <TextBlock Text="Звание:" TextAlignment="Right" Height="20" Margin="0,0,20,0"/>
-                <ComboBox x:Name="cb_rank" DisplayMemberPath="Название" SelectedValuePath="IdЗвание" Width="165"/>
-            </StackPanel>
+            <DockPanel Grid.Column="1" VerticalAlignment="Top">
+                <TextBlock Text="Звание:" TextAlignment="Right" Height="20" Margin="20,0,20,0"/>
+                <ComboBox x:Name="cb_rank" DisplayMemberPath="Название" SelectedValuePath="IdЗвание" Width="auto"/>
+            </DockPanel>
 
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,30,0,0" >
-                <TextBlock Text="Степень:" TextAlignment="Right" Height="20" Margin="0,0,20,0"/>
-                <ComboBox x:Name="cb_stepen" DisplayMemberPath="Название" SelectedValuePath="IdСтепень" Width="120"/>
-            </StackPanel>
-        </StackPanel>
-        
+            <DockPanel Grid.Column="1" VerticalAlignment="Center">
+                <TextBlock Text="Степень:" TextAlignment="Right" Height="20" Margin="20,0,20,0"/>
+                <ComboBox x:Name="cb_stepen" DisplayMemberPath="Название" SelectedValuePath="IdСтепень" Width="auto"/>
+            </DockPanel>
+
+        </Grid>
+
         <Button x:Name="b_addNew" Grid.Column="1" Grid.Row="2" Content="Добавить" Style="{StaticResource MainButton}" Width="100" Height="40" Click="b_addNew_Click"/>
     </Grid>
 </Page>
