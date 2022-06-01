@@ -21,13 +21,17 @@ namespace Institute.Frames.Insert
     /// <summary>
     /// Логика взаимодействия для AddSpeciality.xaml
     /// </summary>
-    public partial class AddSpeciality : Page
+    public partial class AddSpeciality : Page, IUpdating
     {
         public AddSpeciality()
         {
             InitializeComponent();
         }
         private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            UpdateCombobox();
+        }
+        public void UpdateCombobox()
         {
             cb_qualifi.ItemsSource = ConnectionDB.conDB.Квалификация.ToList();
             cb_facult.ItemsSource = ConnectionDB.conDB.Факультет.ToList();
@@ -38,7 +42,6 @@ namespace Institute.Frames.Insert
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
         }
-
         private void b_addNew_Click(object sender, RoutedEventArgs e)
         {
             if (tb_title.Text == string.Empty || tb_year.Text == string.Empty || cb_facult.SelectedItem == null
@@ -72,6 +75,12 @@ namespace Institute.Frames.Insert
         private void b_close_Click(object sender, RoutedEventArgs e)
         {
             notific.Visibility = Visibility.Hidden;
+        }
+
+        private void b_addfacult_Click(object sender, RoutedEventArgs e)
+        {
+            Windows.AddFacultet facultet = new Windows.AddFacultet(this);
+            facultet.Show();
         }
     }
 }

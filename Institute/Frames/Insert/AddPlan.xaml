@@ -39,6 +39,7 @@
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                 <TextBlock Text="Дисциплина:" VerticalAlignment="Center" Margin="0,0,20,0"/>
                 <ComboBox x:Name="cb_discip" DisplayMemberPath="Название" SelectedValuePath="IdДисцип" Width="150"/>
+                <Button x:Name="b_addfacult" Style="{DynamicResource Circle}" Content="➕" FontSize="9" Width="20" Height="20" Margin="5,0,0,0" Click="b_addDiscip_Click"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,30,0,0">

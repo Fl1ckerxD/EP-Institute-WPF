@@ -20,7 +20,7 @@ namespace Institute.Frames.Update
     /// <summary>
     /// Логика взаимодействия для UpdateSpeciality.xaml
     /// </summary>
-    public partial class UpdateSpeciality : Page
+    public partial class UpdateSpeciality : Page, IUpdating
     {
         private int idSpec;
         public UpdateSpeciality(int idSpec)
@@ -30,9 +30,7 @@ namespace Institute.Frames.Update
         }
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            cb_qualifi.ItemsSource = ConnectionDB.conDB.Квалификация.ToList();
-            cb_facult.ItemsSource = ConnectionDB.conDB.Факультет.ToList();
-            cb_forma.ItemsSource = ConnectionDB.conDB.ФормаОбучения.ToList();
+            UpdateCombobox();
 
             cb_qualifi.SelectedValue = ConnectionDB.conDB.Специальность.Find(idSpec).IdКвалиф;
             cb_facult.SelectedValue = ConnectionDB.conDB.Специальность.Find(idSpec).IdФакультет;
@@ -41,6 +39,13 @@ namespace Institute.Frames.Update
             tb_year.Text = MyDuration.OutputYear(ConnectionDB.conDB.Специальность.Find(idSpec).Продолжительность);
             tb_month.Text = MyDuration.OutputMonth(ConnectionDB.conDB.Специальность.Find(idSpec).Продолжительность);
         }
+        public void UpdateCombobox()
+        {
+            cb_qualifi.ItemsSource = ConnectionDB.conDB.Квалификация.ToList();
+            cb_facult.ItemsSource = ConnectionDB.conDB.Факультет.ToList();
+            cb_forma.ItemsSource = ConnectionDB.conDB.ФормаОбучения.ToList();
+        }
+
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
         {
             Regex regex = new Regex("[^0-9]+");
@@ -79,6 +84,12 @@ namespace Institute.Frames.Update
         private void b_close_Click(object sender, RoutedEventArgs e)
         {
             notific.Visibility = Visibility.Hidden;
+        }
+
+        private void b_addfacult_Click(object sender, RoutedEventArgs e)
+        {
+            Windows.AddFacultet facultet = new Windows.AddFacultet(this);
+            facultet.Show();
         }
     }
 }

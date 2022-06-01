@@ -20,7 +20,7 @@ namespace Institute.Frames.Update
     /// <summary>
     /// Логика взаимодействия для UpdateDepartment.xaml
     /// </summary>
-    public partial class UpdateDepartment : Page
+    public partial class UpdateDepartment : Page, IUpdating
     {
         private int idDepart;
         public UpdateDepartment(int idDepart)
@@ -30,14 +30,19 @@ namespace Institute.Frames.Update
         }
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            cb_facult.ItemsSource = ConnectionDB.conDB.Факультет.ToList();
-            cb_manager.ItemsSource = ConnectionDB.conDB.ЗавКафедрой.ToList();
+            UpdateCombobox();
 
             tb_title.Text = ConnectionDB.conDB.Кафедра.Find(idDepart).Название;
             tb_phone.Text = ConnectionDB.conDB.Кафедра.Find(idDepart).Телефон;
             cb_facult.SelectedValue = ConnectionDB.conDB.Кафедра.Find(idDepart).IdФакультет;
             cb_manager.SelectedValue = ConnectionDB.conDB.Кафедра.Find(idDepart).IdЗавКаф;
         }
+        public void UpdateCombobox()
+        {
+            cb_facult.ItemsSource = ConnectionDB.conDB.Факультет.ToList();
+            cb_manager.ItemsSource = ConnectionDB.conDB.ЗавКафедрой.ToList();
+        }
+
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
         {
             Regex regex = new Regex("[^0-9]+");
@@ -74,6 +79,12 @@ namespace Institute.Frames.Update
         private void b_close_Click(object sender, RoutedEventArgs e)
         {
             notific.Visibility = Visibility.Hidden;
+        }
+
+        private void b_addfacult_Click(object sender, RoutedEventArgs e)
+        {
+            Windows.AddFacultet facultet = new Windows.AddFacultet(this);
+            facultet.Show();
         }
     }
 }

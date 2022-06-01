@@ -20,7 +20,7 @@ namespace Institute.Frames.Insert
     /// <summary>
     /// Логика взаимодействия для AddDepartment.xaml
     /// </summary>
-    public partial class AddDepartment : Page
+    public partial class AddDepartment : Page, IUpdating
     {
         public AddDepartment()
         {
@@ -28,8 +28,7 @@ namespace Institute.Frames.Insert
         }
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            cb_facult.ItemsSource = ConnectionDB.conDB.Факультет.ToList();
-            cb_manager.ItemsSource = ConnectionDB.conDB.ЗавКафедрой.ToList();
+            UpdateCombobox();
         }
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
         {
@@ -68,6 +67,17 @@ namespace Institute.Frames.Insert
         private void b_close_Click(object sender, RoutedEventArgs e)
         {
             notific.Visibility = Visibility.Hidden;
+        }
+
+        private void b_addfacult_Click(object sender, RoutedEventArgs e)
+        {
+            Windows.AddFacultet facultet = new Windows.AddFacultet(this);
+            facultet.Show();
+        }
+        public void UpdateCombobox()
+        {
+            cb_facult.ItemsSource = ConnectionDB.conDB.Факультет.ToList();
+            cb_manager.ItemsSource = ConnectionDB.conDB.ЗавКафедрой.ToList();
         }
     }
 }

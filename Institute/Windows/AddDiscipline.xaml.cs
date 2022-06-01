@@ -10,20 +10,26 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Institute.Classes;
 
-namespace Institute.Frames.Insert
+namespace Institute.Windows
 {
     /// <summary>
     /// Логика взаимодействия для AddDiscipline.xaml
     /// </summary>
-    public partial class AddDiscipline : Page
+    public partial class AddDiscipline : Window
     {
-        public AddDiscipline()
+        IUpdating updating;
+        public AddDiscipline(IUpdating page)
         {
             InitializeComponent();
+        }
+
+        private void b_addNewClose_Click(object sender, RoutedEventArgs e)
+        {
+            b_addNew_Click(sender, e);
+            this.Close();
         }
 
         private void b_addNew_Click(object sender, RoutedEventArgs e)
@@ -34,6 +40,8 @@ namespace Institute.Frames.Insert
             };
             ConnectionDB.conDB.Дисциплина.Add(dis);
             ConnectionDB.conDB.SaveChanges();
+
+            updating.UpdateCombobox();
         }
     }
 }

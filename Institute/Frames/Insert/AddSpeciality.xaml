@@ -54,6 +54,7 @@
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,30,0,0">
                 <TextBlock Text="Факультет:" Height="25" TextAlignment="Right" Margin="0,0,20,0"/>
                 <ComboBox x:Name="cb_facult" DisplayMemberPath="Название" SelectedValuePath="IdФакульт" Width="130"/>
+                <Button x:Name="b_addfacult" Style="{DynamicResource Circle}" Content="➕" FontSize="9" Width="20" Height="20" Margin="5,0,0,0" Click="b_addfacult_Click"/>
             </StackPanel>
         </StackPanel>
 

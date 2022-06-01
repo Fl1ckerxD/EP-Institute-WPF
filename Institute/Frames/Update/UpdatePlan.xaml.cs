@@ -20,7 +20,7 @@ namespace Institute.Frames.Update
     /// <summary>
     /// Логика взаимодействия для UpdatePlan.xaml
     /// </summary>
-    public partial class UpdatePlan : Page
+    public partial class UpdatePlan : Page, IUpdating
     {
         private int idPlan;
         public UpdatePlan(int idPlan)
@@ -30,9 +30,7 @@ namespace Institute.Frames.Update
         }
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            cb_discip.ItemsSource = ConnectionDB.conDB.Дисциплина.ToList();
-            cb_otchet.ItemsSource = ConnectionDB.conDB.ВидОтчетности.ToList();
-            cb_spec.ItemsSource = ConnectionDB.conDB.Специальность.ToList();
+            UpdateCombobox();
 
             cb_discip.SelectedValue = ConnectionDB.conDB.УчебныйПлан.Find(idPlan).IdДисцип;
             cb_otchet.SelectedValue = ConnectionDB.conDB.УчебныйПлан.Find(idPlan).IdВидОтчет;
@@ -43,6 +41,14 @@ namespace Institute.Frames.Update
             tb_parc.Text = ConnectionDB.conDB.УчебныйПлан.Find(idPlan).ЧасыПракРабот.ToString();
             cb_semestr.SelectedItem = ConnectionDB.conDB.УчебныйПлан.Find(idPlan).Семестр.ToString();
         }
+
+        public void UpdateCombobox()
+        {
+            cb_discip.ItemsSource = ConnectionDB.conDB.Дисциплина.ToList();
+            cb_otchet.ItemsSource = ConnectionDB.conDB.ВидОтчетности.ToList();
+            cb_spec.ItemsSource = ConnectionDB.conDB.Специальность.ToList();
+        }
+
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
         {
             Regex regex = new Regex("[^0-9]+");
@@ -84,6 +90,12 @@ namespace Institute.Frames.Update
         private void b_close_Click(object sender, RoutedEventArgs e)
         {
             notific.Visibility = Visibility.Hidden;
+        }
+
+        private void b_addDiscip_Click(object sender, RoutedEventArgs e)
+        {
+            Windows.AddDiscipline facultet = new Windows.AddDiscipline(this);
+            facultet.Show();
         }
     }
 }

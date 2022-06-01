@@ -19,7 +19,7 @@ namespace Institute.Frames.Insert
     /// <summary>
     /// Логика взаимодействия для AddManager.xaml
     /// </summary>
-    public partial class AddManager : Page
+    public partial class AddManager : Page, IUpdating
     {
         public AddManager()
         {
@@ -27,8 +27,7 @@ namespace Institute.Frames.Insert
         }
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            cb_rank.ItemsSource = ConnectionDB.conDB.Звание.ToList();
-            cb_stepen.ItemsSource = ConnectionDB.conDB.Степень.ToList();
+            UpdateCombobox();
         }
         private void b_addNew_Click(object sender, RoutedEventArgs e)
         {
@@ -63,6 +62,11 @@ namespace Institute.Frames.Insert
         private void b_close_Click(object sender, RoutedEventArgs e)
         {
             notific.Visibility = Visibility.Hidden;
+        }
+        public void UpdateCombobox()
+        {
+            cb_rank.ItemsSource = ConnectionDB.conDB.Звание.ToList();
+            cb_stepen.ItemsSource = ConnectionDB.conDB.Степень.ToList();
         }
     }
 }

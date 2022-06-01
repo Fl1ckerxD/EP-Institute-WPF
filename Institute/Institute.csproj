@@ -66,16 +66,11 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Classes\ConnectionDB.cs" />
+    <Compile Include="Classes\IUpdating.cs" />
     <Compile Include="Classes\MyDuration.cs" />
     <Compile Include="Classes\Notification.cs" />
     <Compile Include="Frames\Insert\AddDepartment.xaml.cs">
       <DependentUpon>AddDepartment.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Frames\Insert\AddDiscipline.xaml.cs">
-      <DependentUpon>AddDiscipline.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Frames\Insert\AddFacultet.xaml.cs">
-      <DependentUpon>AddFacultet.xaml</DependentUpon>
     </Compile>
     <Compile Include="Frames\Insert\AddManager.xaml.cs">
       <DependentUpon>AddManager.xaml</DependentUpon>
@@ -140,15 +135,13 @@
     <Compile Include="Model\ФормаОбучения.cs">
       <DependentUpon>InstituteDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Windows\AddDiscipline.xaml.cs">
+      <DependentUpon>AddDiscipline.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\AddFacultet.xaml.cs">
+      <DependentUpon>AddFacultet.xaml</DependentUpon>
+    </Compile>
     <Page Include="Frames\Insert\AddDepartment.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Frames\Insert\AddDiscipline.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Frames\Insert\AddFacultet.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -239,6 +232,14 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Resources\Dictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\AddDiscipline.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\AddFacultet.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

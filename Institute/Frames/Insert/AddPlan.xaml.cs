@@ -20,7 +20,7 @@ namespace Institute.Frames.Insert
     /// <summary>
     /// Логика взаимодействия для AddPlan.xaml
     /// </summary>
-    public partial class AddPlan : Page
+    public partial class AddPlan : Page, IUpdating
     {
         public AddPlan()
         {
@@ -29,10 +29,16 @@ namespace Institute.Frames.Insert
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
+            UpdateCombobox();
+        }
+
+        public void UpdateCombobox()
+        {
             cb_discip.ItemsSource = ConnectionDB.conDB.Дисциплина.ToList();
             cb_otchet.ItemsSource = ConnectionDB.conDB.ВидОтчетности.ToList();
             cb_spec.ItemsSource = ConnectionDB.conDB.Специальность.ToList();
         }
+
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
         {
             Regex regex = new Regex("[^0-9]+");
@@ -75,6 +81,11 @@ namespace Institute.Frames.Insert
         private void b_close_Click(object sender, RoutedEventArgs e)
         {
             notific.Visibility = Visibility.Hidden;
+        }
+        private void b_addDiscip_Click(object sender, RoutedEventArgs e)
+        {
+            Windows.AddDiscipline facultet = new Windows.AddDiscipline(this);
+            facultet.Show();
         }
     }
 }
