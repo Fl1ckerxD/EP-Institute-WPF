@@ -109,6 +109,16 @@
             </Setter.Value>
         </Setter>
     </Style>
-    
-    
+
+    <Style TargetType="DataGrid">
+        <Setter Property="FontSize" Value="15"/>
+        <Setter Property="AlternatingRowBackground" Value="LightGoldenrodYellow"/>
+        <Setter Property="Background" Value="White"/>
+        <Setter Property="BorderBrush" Value="{StaticResource main}"/>
+        <Setter Property="HorizontalGridLinesBrush" Value="white"/>
+        <Setter Property="VerticalGridLinesBrush" Value="White"/>
+        <Setter Property="CanUserAddRows" Value="False"/>
+        <Setter Property="CanUserDeleteRows" Value="False"/>
+        <Setter Property="IsReadOnly" Value="True"/>
+    </Style>
 </ResourceDictionary>

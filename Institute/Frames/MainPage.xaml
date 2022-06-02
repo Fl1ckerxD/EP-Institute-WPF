@@ -9,11 +9,40 @@
       Title="Главное меню">
 
     <Grid>
-        <StackPanel VerticalAlignment="Center">
-            <Button x:Name="b_Speciality" Content="Специальности" Style="{StaticResource MainButton}" Width="160" Margin="0,0,0,10" Click="b_Speciality_Click"/>
-            <Button x:Name="b_Department" Content="Кафедры" Style="{StaticResource MainButton}" Width="160"  Margin="0,0,0,10" Click="b_Department_Click"/>
-            <Button x:Name="b_Discipline" Content="Учебный план" Style="{StaticResource MainButton}" Width="160"  Margin="0,0,0,10" Click="b_Discipline_Click"/>
-            <Button x:Name="b_Manager" Content="Зав. кафедрой" Style="{StaticResource MainButton}" Width="160"  Margin="0,0,0,10" Click="b_Manager_Click"/>
-        </StackPanel>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Button x:Name="b_Speciality" Style="{StaticResource MainButton}" BorderThickness="0" Width="auto" Height="Auto" VerticalAlignment="Top" Click="b_Speciality_Click">
+            <StackPanel>
+                <Image Source="/Institute;component/Resources/specialization.png" Height="146" />
+                <TextBlock Text="Специальность" TextAlignment="Center"/>
+            </StackPanel>
+        </Button>
+
+        <Button x:Name="b_Department" Grid.Column="1" Style="{StaticResource MainButton}" BorderThickness="0" Width="auto" Height="auto" VerticalAlignment="Top" Click="b_Department_Click">
+            <StackPanel>
+                <Image Source="/Institute;component/Resources/department.png" Height="146"/>
+                <TextBlock Text="Кафедры" TextAlignment="Center"/>
+            </StackPanel>
+        </Button>
+
+        <Button x:Name="b_Discipline" Grid.Column="2" Style="{StaticResource MainButton}" BorderThickness="0" Width="auto" Height="auto" VerticalAlignment="Top" Click="b_Discipline_Click">
+            <StackPanel>
+                <Image Source="/Institute;component/Resources/folders.png" Height="146"/>
+                <TextBlock Text="Учебный план" TextAlignment="Center"/>
+            </StackPanel>
+        </Button>
+
+        <Button x:Name="b_Manager" Grid.Column="3" Style="{StaticResource MainButton}" BorderThickness="0" Width="auto" Height="auto" VerticalAlignment="Top" Click="b_Manager_Click">
+            <StackPanel>
+            <Image Source="/Institute;component/Resources/youth.png" Height="146"/>
+                <TextBlock Text="Зав. кафедрой" TextAlignment="Center"/>
+            </StackPanel>
+        </Button>
+
     </Grid>
 </Page>
