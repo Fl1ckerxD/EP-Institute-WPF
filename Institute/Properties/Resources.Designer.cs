@@ -73,9 +73,9 @@ namespace Institute.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap department {
+        internal static System.Drawing.Bitmap department__1_ {
             get {
-                object obj = ResourceManager.GetObject("department", resourceCulture);
+                object obj = ResourceManager.GetObject("department__1_", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

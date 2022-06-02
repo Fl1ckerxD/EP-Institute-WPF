@@ -50,7 +50,7 @@ namespace Institute.Frames.Update
         }
         private void b_save_Click(object sender, RoutedEventArgs e)
         {
-            if (tb_title.Text == string.Empty || tb_phone.Text == string.Empty || cb_facult.SelectedItem == null || cb_manager.SelectedItem == null)
+            if (String.IsNullOrWhiteSpace(tb_title.Text) || String.IsNullOrWhiteSpace(tb_phone.Text) || cb_facult.SelectedItem == null || cb_manager.SelectedItem == null)
             {
                 description.Text = "Не все данные были введены";
                 notific.Visibility = Visibility.Visible;

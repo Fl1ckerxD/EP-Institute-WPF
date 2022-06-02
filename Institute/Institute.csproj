@@ -302,7 +302,7 @@
       <DependentUpon>InstituteDB.edmx</DependentUpon>
       <LastGenOutput>InstituteDB.cs</LastGenOutput>
     </Content>
-    <Resource Include="Resources\department.png" />
+    <Resource Include="Resources\department %281%29.png" />
     <Resource Include="Resources\folders.png" />
     <Resource Include="Resources\specialization.png" />
     <Resource Include="Resources\youth.png" />

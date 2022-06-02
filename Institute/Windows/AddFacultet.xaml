@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Institute.Windows"
         mc:Ignorable="d"
-        Title="Добавление факультета" Height="165" Width="400" MinHeight="165" MinWidth="400" MaxHeight="165" MaxWidth="400" WindowStartupLocation="CenterScreen">
+        Title="Добавление факультета" Height="165" Width="400" MinHeight="165" MinWidth="400" MaxHeight="165" MaxWidth="400" WindowStartupLocation="CenterScreen" Icon="/Institute;component/Resources/college.png">
     <Grid>
         <TextBlock Text="Добавление факультета" FontSize="25" Margin="15,0,0,0" />
         <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="15,45,0,0">

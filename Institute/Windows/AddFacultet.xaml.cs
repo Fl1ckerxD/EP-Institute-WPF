@@ -20,7 +20,7 @@ namespace Institute.Windows
     /// </summary>
     public partial class AddFacultet : Window
     {
-        IUpdating updating;
+        private IUpdating updating;
         public AddFacultet(IUpdating page)
         {
             InitializeComponent();
@@ -29,20 +29,26 @@ namespace Institute.Windows
 
         private void b_addNew_Click(object sender, RoutedEventArgs e)
         {
-            Model.Факультет facult = new Model.Факультет()
+            if (!String.IsNullOrWhiteSpace(tb_title.Text))
             {
-                Название = tb_title.Text
-            };
-            ConnectionDB.conDB.Факультет.Add(facult);
-            ConnectionDB.conDB.SaveChanges();
+                Model.Факультет facult = new Model.Факультет()
+                {
+                    Название = tb_title.Text
+                };
+                ConnectionDB.conDB.Факультет.Add(facult);
+                ConnectionDB.conDB.SaveChanges();
 
-            updating.UpdateCombobox();
+                updating.UpdateCombobox();
+            }
         }
 
         private void b_addNewClose_Click(object sender, RoutedEventArgs e)
         {
-            b_addNew_Click(sender, e);
-            this.Close();
+            if (!String.IsNullOrWhiteSpace(tb_title.Text))
+            {
+                b_addNew_Click(sender, e);
+                this.Close();
+            }
         }
     }
 }

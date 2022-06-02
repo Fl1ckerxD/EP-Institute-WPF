@@ -47,7 +47,7 @@ namespace Institute.Frames.Insert
 
         private void b_addNew_Click(object sender, RoutedEventArgs e)
         {
-            if (tb_kurs.Text == string.Empty || tb_lab.Text == string.Empty || tb_lek.Text == string.Empty || tb_parc.Text == string.Empty
+            if (String.IsNullOrWhiteSpace(tb_kurs.Text) || String.IsNullOrWhiteSpace(tb_lab.Text) || String.IsNullOrWhiteSpace(tb_lek.Text) || String.IsNullOrWhiteSpace(tb_parc.Text)
                 || cb_discip.SelectedItem == null || cb_otchet.SelectedItem == null || cb_semestr.SelectedItem == null || cb_spec.SelectedItem == null)
             {
                 description.Text = "Не все данные были введены";

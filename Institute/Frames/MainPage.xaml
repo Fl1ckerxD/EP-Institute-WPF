@@ -25,7 +25,7 @@
 
         <Button x:Name="b_Department" Grid.Column="1" Style="{StaticResource MainButton}" BorderThickness="0" Width="auto" Height="auto" VerticalAlignment="Top" Click="b_Department_Click">
             <StackPanel>
-                <Image Source="/Institute;component/Resources/department.png" Height="146"/>
+                <Image Source="/Institute;component/Resources/department (1).png" Height="146"/>
                 <TextBlock Text="Кафедры" TextAlignment="Center"/>
             </StackPanel>
         </Button>

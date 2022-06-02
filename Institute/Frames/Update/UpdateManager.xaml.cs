@@ -41,7 +41,7 @@ namespace Institute.Frames.Update
 
         private void b_save_Click(object sender, RoutedEventArgs e)
         {
-            if (tb_lastName.Text == string.Empty || tb_name.Text == string.Empty || cb_rank.SelectedItem == null || cb_stepen.SelectedItem == null)
+            if (String.IsNullOrWhiteSpace(tb_lastName.Text) || String.IsNullOrWhiteSpace(tb_name.Text) || cb_rank.SelectedItem == null || cb_stepen.SelectedItem == null)
             {
                 description.Text = "Не все данные были введены";
                 notific.Visibility = Visibility.Visible;

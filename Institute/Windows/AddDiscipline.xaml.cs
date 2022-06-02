@@ -20,28 +20,35 @@ namespace Institute.Windows
     /// </summary>
     public partial class AddDiscipline : Window
     {
-        IUpdating updating;
+        private IUpdating updating;
         public AddDiscipline(IUpdating page)
         {
             InitializeComponent();
+            updating = page;
         }
 
         private void b_addNewClose_Click(object sender, RoutedEventArgs e)
         {
-            b_addNew_Click(sender, e);
-            this.Close();
+            if ( !String.IsNullOrWhiteSpace(tb_title.Text))
+            {
+                b_addNew_Click(sender, e);
+                this.Close();
+            }
         }
 
         private void b_addNew_Click(object sender, RoutedEventArgs e)
         {
-            Model.Дисциплина dis = new Model.Дисциплина()
+            if (!String.IsNullOrWhiteSpace(tb_title.Text))
             {
-                Название = tb_title.Text
-            };
-            ConnectionDB.conDB.Дисциплина.Add(dis);
-            ConnectionDB.conDB.SaveChanges();
+                Model.Дисциплина dis = new Model.Дисциплина()
+                {
+                    Название = tb_title.Text
+                };
+                ConnectionDB.conDB.Дисциплина.Add(dis);
+                ConnectionDB.conDB.SaveChanges();
 
-            updating.UpdateCombobox();
+                updating.UpdateCombobox();
+            }
         }
     }
 }
