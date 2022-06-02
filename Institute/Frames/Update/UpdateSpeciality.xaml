@@ -41,28 +41,35 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-            <StackPanel>
-                <DockPanel>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <DockPanel VerticalAlignment="Bottom">
                     <TextBlock Text="Название:" Height="30" TextAlignment="Right" Margin="0,0,20,0"/>
                     <TextBox x:Name="tb_title"/>
                 </DockPanel>
 
-                <DockPanel Margin="0,30,0,0">
+                <DockPanel Grid.Row="1" VerticalAlignment="Bottom">
                     <TextBlock Text="Квалификация:" Height="25" TextAlignment="Right" Margin="0,0,20,0"/>
                     <ComboBox x:Name="cb_qualifi" DisplayMemberPath="Название" SelectedValuePath="IdКвалиф" Width="auto"/>
                 </DockPanel>
 
-                <DockPanel Margin="0,30,0,0">
+                <DockPanel Grid.Row="2" VerticalAlignment="Bottom">
                     <TextBlock Text="Форма обучения:" Height="25" TextAlignment="Right" Margin="0,0,20,0"/>
                     <ComboBox x:Name="cb_forma" DisplayMemberPath="Название" SelectedValuePath="IdФорма" Width="auto"/>
                 </DockPanel>
 
-                <DockPanel Margin="0,30,0,0">
+                <DockPanel Grid.Row="3" VerticalAlignment="Bottom">
                     <TextBlock Text="Факультет:" Height="25" TextAlignment="Right" Margin="0,0,20,0"/>
                     <ComboBox x:Name="cb_facult" DisplayMemberPath="Название" SelectedValuePath="IdФакульт" Width="auto"/>
                 </DockPanel>
-            </StackPanel>
-            <Button x:Name="b_addfacult" Style="{DynamicResource Circle}" Content="➕" FontSize="9" Width="20" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,294,15" Click="b_addfacult_Click" Grid.Column="1"/>
+                <Button x:Name="b_addfacult" Style="{DynamicResource Circle}" Content="➕" FontSize="9" Width="20" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Right" Grid.Row="3" Margin="0,0,-30,5"  Click="b_addfacult_Click"/>
+            </Grid>
 
             <StackPanel Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center">
                 <StackPanel Orientation="Horizontal">
